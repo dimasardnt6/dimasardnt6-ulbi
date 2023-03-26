@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"github.com/aiteung/musik"
 	cek "github.com/aiteung/presensi"
 	"github.com/dimasardnt6/dimasardnt6-ulbi/config"
 	"github.com/gofiber/fiber/v2"
@@ -12,9 +11,12 @@ import (
 	"github.com/dimasardnt6/kemahasiswaan/module"
 )
 
-func Homepage(c *fiber.Ctx) error {
-	ipaddr := musik.GetIPaddress()
-	return c.JSON(ipaddr)
+func Home(c *fiber.Ctx) error {
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+		"github_repo": "https://github.com/dimasardnt6/dimasardnt6-ulbi",
+		"message":     "You are at the root endpoint 😉",
+		"success":     true,
+	})
 }
 
 func GetPresensi(c *fiber.Ctx) error {
