@@ -16,7 +16,6 @@ func Web(page *fiber.App) {
 	page.Get("/all-keuangan", controller.GetAllKeuanganMahasiswa)
 	page.Get("/all-nilai", controller.GetAllNilaiMahasiswa)
 	page.Get("/kemahasiswaan/:id", controller.GetKemahasiswaan)
-	page.Get("/kemahasiswaan", controller.GetKemahasiswaan)
 	page.Get("/data-mahasiswa", controller.GetDataMahasiswa)
 	page.Get("/keuangan-mahasiswa", controller.GetKeuanganMahasiswa)
 	page.Get("/nilai-mahasiswa", controller.GetNilaiMahasiswa)
