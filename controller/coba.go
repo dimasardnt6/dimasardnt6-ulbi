@@ -144,7 +144,7 @@ func GetAllNilaiMahasiswa(c *fiber.Ctx) error {
 //Latihan W-6
 
 func GetAllPresensi(c *fiber.Ctx) error {
-	ps := inimodullatihan.GetAllPresensi(config.Ulbimongoconn, "presensi")
+	ps := inimodullatihan.GetAllPresensi(config.Ulbimongoconn2, "presensi")
 	return c.JSON(ps)
 }
 func GetPresensiID(c *fiber.Ctx) error {
@@ -162,7 +162,7 @@ func GetPresensiID(c *fiber.Ctx) error {
 			"message": "Invalid id parameter",
 		})
 	}
-	ps, err := inimodullatihan.GetPresensiFromID(objID, config.Ulbimongoconn, "presensi")
+	ps, err := inimodullatihan.GetPresensiFromID(objID, config.Ulbimongoconn2, "presensi")
 	if err != nil {
 		if errors.Is(err, mongo.ErrNoDocuments) {
 			return c.Status(http.StatusNotFound).JSON(fiber.Map{
