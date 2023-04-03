@@ -7,7 +7,7 @@ import (
 	cek "github.com/aiteung/presensi"
 	"github.com/dimasardnt6/dimasardnt6-ulbi/config"
 	"github.com/dimasardnt6/kemahasiswaan/model"
-	"github.com/dimasardnt6/kemahasiswaan/module"
+	inimodule "github.com/dimasardnt6/kemahasiswaan/module"
 	"github.com/gofiber/fiber/v2"
 
 	inimodullatihan "github.com/indrariksa/be_presensi/module"
@@ -33,19 +33,19 @@ func GetPresensi(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 func GetKemahasiswaan(c *fiber.Ctx) error {
-	kemahasiswaan := module.GetKemahasiswaanFromNpm("1214054", config.Ulbimongoconn, "kemahasiswaan")
+	kemahasiswaan := inimodule.GetKemahasiswaanFromNpm("1214054", config.Ulbimongoconn, "kemahasiswaan")
 	return c.JSON(kemahasiswaan)
 }
 func GetDataMahasiswa(c *fiber.Ctx) error {
-	mahasiswa := module.GetDataMahasiswaFromNpm("1214054", config.Ulbimongoconn, "data_mahasiswa")
+	mahasiswa := inimodule.GetDataMahasiswaFromNpm("1214054", config.Ulbimongoconn, "data_mahasiswa")
 	return c.JSON(mahasiswa)
 }
 func GetKeuanganMahasiswa(c *fiber.Ctx) error {
-	keuangan := module.GetKeuanganMahasiswaFromNomorHp("6289647129890", config.Ulbimongoconn, "keuangan_mahasiswa")
+	keuangan := inimodule.GetKeuanganMahasiswaFromNomorHp("6289647129890", config.Ulbimongoconn, "keuangan_mahasiswa")
 	return c.JSON(keuangan)
 }
 func GetNilaiMahasiswa(c *fiber.Ctx) error {
-	nilai := module.GetNilaiMahasiswaFromNama("Dimas Ardianto", config.Ulbimongoconn, "nilai_mahasiswa")
+	nilai := inimodule.GetNilaiMahasiswaFromNama("Dimas Ardianto", config.Ulbimongoconn, "nilai_mahasiswa")
 	return c.JSON(nilai)
 }
 
@@ -57,7 +57,7 @@ func InsertKemahasiswaan(c *fiber.Ctx) error {
 	if err := c.BodyParser(&kemahasiswaan); err != nil {
 		return err
 	}
-	insertedID := module.InsertKemahasiswaan(db, "kemahasiswaan",
+	insertedID := inimodule.InsertKemahasiswaan(db, "kemahasiswaan",
 		kemahasiswaan.Identitas_Mahasiswa,
 		kemahasiswaan.Status_Keuangan,
 		kemahasiswaan.Nilai_Mahasiswa)
@@ -74,7 +74,7 @@ func InsertDataMahasiswa(c *fiber.Ctx) error {
 	if err := c.BodyParser(&mahasiswa); err != nil {
 		return err
 	}
-	insertedID := module.InsertDataMahasiswa(db, "data_mahasiswa",
+	insertedID := inimodule.InsertDataMahasiswa(db, "data_mahasiswa",
 		mahasiswa.Npm,
 		mahasiswa.Nama,
 		mahasiswa.Nomor_Handphone,
@@ -94,7 +94,7 @@ func InsertKeuanganMahasiswa(c *fiber.Ctx) error {
 	if err := c.BodyParser(&keuangan); err != nil {
 		return err
 	}
-	insertedID := module.InsertKeuanganMahasiswa(db, "keuangan_mahasiswa",
+	insertedID := inimodule.InsertKeuanganMahasiswa(db, "keuangan_mahasiswa",
 		keuangan.Biodata,
 		keuangan.Total_Pembayaran)
 	return c.JSON(map[string]interface{}{
@@ -110,7 +110,7 @@ func InsertNilaiMahasiswa(c *fiber.Ctx) error {
 	if err := c.BodyParser(&nilai); err != nil {
 		return err
 	}
-	insertedID := module.InsertNilaiMahasiswa(db, "nilai_mahasiswa",
+	insertedID := inimodule.InsertNilaiMahasiswa(db, "nilai_mahasiswa",
 		nilai.Biodata_Mahasiswa,
 		nilai.Matakuliah,
 		nilai.Nilai_Angka,
@@ -125,19 +125,19 @@ func InsertNilaiMahasiswa(c *fiber.Ctx) error {
 //GetFunction
 
 func GetAllKemahasiswaan(c *fiber.Ctx) error {
-	ps := module.GetAllKemahasiswaan(config.Ulbimongoconn, "kemahasiswaan")
+	ps := inimodule.GetAllKemahasiswaan(config.Ulbimongoconn, "kemahasiswaan")
 	return c.JSON(ps)
 }
 func GetAllDataMahasiswa(c *fiber.Ctx) error {
-	ps := module.GetAllDataMahasiswa(config.Ulbimongoconn, "data_mahasiswa")
+	ps := inimodule.GetAllDataMahasiswa(config.Ulbimongoconn, "data_mahasiswa")
 	return c.JSON(ps)
 }
 func GetAllKeuanganMahasiswa(c *fiber.Ctx) error {
-	ps := module.GetAllKeuanganMahasiswa(config.Ulbimongoconn, "keuangan_mahasiswa")
+	ps := inimodule.GetAllKeuanganMahasiswa(config.Ulbimongoconn, "keuangan_mahasiswa")
 	return c.JSON(ps)
 }
 func GetAllNilaiMahasiswa(c *fiber.Ctx) error {
-	ps := module.GetAllNilaiMahasiswa(config.Ulbimongoconn, "nilai_mahasiswa")
+	ps := inimodule.GetAllNilaiMahasiswa(config.Ulbimongoconn, "nilai_mahasiswa")
 	return c.JSON(ps)
 }
 
@@ -175,5 +175,18 @@ func GetPresensiID(c *fiber.Ctx) error {
 			"message": fmt.Sprintf("Error retrieving data for id %s", id),
 		})
 	}
+	return c.JSON(ps)
+}
+
+func GetKemahasiswaanNPM(c *fiber.Ctx) error {
+	queryValue := c.Query("npm")
+	// i, err := strconv.Atoi(queryValue)
+	// if err != nil {
+	// 	// ... handle error
+	// 	// panic(err)
+	// 	return c.SendString("format params kurang tepat")
+	// }
+	ps := inimodule.GetKemahasiswaanFromNpm(queryValue, config.Ulbimongoconn, "kemahasiswaan")
+
 	return c.JSON(ps)
 }
