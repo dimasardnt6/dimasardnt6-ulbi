@@ -25,8 +25,6 @@ github.com/andybalholm/brotli v1.0.5/go.mod h1:fO7iG3H7G2nSZ7m0zPUDn85XEX2GTukHG
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/dimasardnt6/kemahasiswaan v0.0.1 h1:Ym7aZuyKGUGbkcNfG4u4fsX2+AF7yYgGJKb97gDpNQs=
-github.com/dimasardnt6/kemahasiswaan v0.0.1/go.mod h1:InZ/OhbHEIQmsoejSTPuAa6AzVlk86MlZx5aPMOJy/Y=
 github.com/dimasardnt6/kemahasiswaan v0.0.2 h1:JzR2D13LOPu9aXdPqRAsCxQ9zCQyYhn//38JG1DfrT0=
 github.com/dimasardnt6/kemahasiswaan v0.0.2/go.mod h1:InZ/OhbHEIQmsoejSTPuAa6AzVlk86MlZx5aPMOJy/Y=
 github.com/dnaeon/go-vcr v1.1.0/go.mod h1:M7tiix8f0r6mKKJ3Yq/kqU1OYf3MnfmBWVbPx/yU9ko=
