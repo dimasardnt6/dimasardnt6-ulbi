@@ -195,7 +195,7 @@ func GetKemahasiswaanNPM(c *fiber.Ctx) error {
 // Week 9
 
 func InsertData(c *fiber.Ctx) error {
-	db := config.Ulbimongoconn
+	db := config.Ulbimongoconn2
 	var presensi inimodellatihan.Presensi
 	if err := c.BodyParser(&presensi); err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
