@@ -318,6 +318,18 @@ func UpdateData(c *fiber.Ctx) error {
 }
 
 // Delete Data
+
+// DeletePresensiByID godoc
+// @Summary Delete data presensi.
+// @Description Hapus data presensi.
+// @Tags Presensi
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200
+// @Failure 400
+// @Failure 500
+// @Router /delete/{id} [delete]
 func DeletePresensiByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
