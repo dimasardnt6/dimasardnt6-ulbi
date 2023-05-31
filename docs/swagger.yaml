@@ -56,7 +56,7 @@ definitions:
       phone_number:
         type: string
     type: object
-host: localhost:8080
+host: https://dimasardnt6-ulbi.herokuapp.com
 info:
   contact:
     email: fiber@swagger.io
