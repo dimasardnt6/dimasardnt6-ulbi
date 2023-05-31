@@ -142,8 +142,16 @@ func GetAllNilaiMahasiswa(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
-//Latihan W-6
+// GetAllPresensi godoc
+// @Summary Get All Data Presensi.
+// @Description Mengambil semua data presensi.
+// @Tags Presensi
+// @Accept json
+// @Produce json
+// @Success 200 {object} Presensi
+// @Router /presensi [get]
 
+// Latihan W-6
 func GetAllPresensi(c *fiber.Ctx) error {
 	ps := inimodullatihan.GetAllPresensi(config.Ulbimongoconn2, "presensi")
 	return c.JSON(ps)
