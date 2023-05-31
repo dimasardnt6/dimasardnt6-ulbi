@@ -147,7 +147,7 @@ func GetAllNilaiMahasiswa(c *fiber.Ctx) error {
 // GetAllPresensi godoc
 // @Summary Get All Data Presensi.
 // @Description Mengambil semua data presensi.
-// @Tags Presensi
+// @Tags Get All
 // @Accept json
 // @Produce json
 // @Success 200 {object} Presensi
