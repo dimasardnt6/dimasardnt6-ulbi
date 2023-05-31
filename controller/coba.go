@@ -215,6 +215,17 @@ func GetKemahasiswaanNPM(c *fiber.Ctx) error {
 
 // Week 9
 
+// InsertData godoc
+// @Summary Insert data presensi.
+// @Description Input data presensi.
+// @Tags Presensi
+// @Accept json
+// @Produce json
+// @Param request body Presensi true "Payload Body [RAW]"
+// @Success 200 {object} Presensi
+// @Failure 400
+// @Failure 500
+// @Router /ins [post]
 func InsertData(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn2
 	var presensi inimodellatihan.Presensi
