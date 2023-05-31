@@ -13,6 +13,8 @@ import (
 	"github.com/dimasardnt6/dimasardnt6-ulbi/url"
 
 	"github.com/gofiber/fiber/v2"
+
+	_ "github.com/dimasardnt6/dimasardnt6-ulbi/docs"
 )
 
 // @title Fiber Example API
