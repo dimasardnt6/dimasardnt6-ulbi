@@ -14,7 +14,7 @@
         },
         "version": "1.0"
     },
-    "host": "https://dimasardnt6-ulbi.herokuapp.com",
+    "host": "dimasardnt6-ulbi.herokuapp.com",
     "basePath": "/",
     "paths": {
         "/presensi": {
