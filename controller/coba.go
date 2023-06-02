@@ -123,7 +123,7 @@ func InsertNilaiMahasiswa(c *fiber.Ctx) error {
 	})
 }
 
-//GetFunction
+//GetAllFunction
 
 func GetAllKemahasiswaan(c *fiber.Ctx) error {
 	ps := inimodule.GetAllKemahasiswaan(config.Ulbimongoconn, "kemahasiswaan")
