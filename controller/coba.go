@@ -215,7 +215,7 @@ func GetDataKemahasiswaanFromID(c *fiber.Ctx) error {
 			"message": "Invalid id parameter",
 		})
 	}
-	ps, err := inimodule.GetDataKemahasiswaanFromID(objID, config.Ulbimongoconn, "kemahasiwaan")
+	ps, err := inimodule.GetDataKemahasiswaanFromID(objID, config.Ulbimongoconn, "kemahasiswaan")
 	if err != nil {
 		if errors.Is(err, mongo.ErrNoDocuments) {
 			return c.Status(http.StatusNotFound).JSON(fiber.Map{
