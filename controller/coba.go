@@ -286,6 +286,32 @@ func InsertData(c *fiber.Ctx) error {
 	})
 }
 
+func InsertDataKemahasiswaan(c *fiber.Ctx) error {
+	db := config.Ulbimongoconn
+	var kemahasiswaan model.Kemahasiswaan
+	if err := c.BodyParser(&kemahasiswaan); err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	insertedID, err := inimodule.InsertDataKemahasiswaan(db, "kemahasiswaan",
+		kemahasiswaan.Identitas_Mahasiswa,
+		kemahasiswaan.Status_Keuangan,
+		kemahasiswaan.Nilai_Mahasiswa)
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"status":      http.StatusOK,
+		"message":     "Data berhasil disimpan.",
+		"inserted_id": insertedID,
+	})
+}
+
 // Week 10
 
 // Update Data
