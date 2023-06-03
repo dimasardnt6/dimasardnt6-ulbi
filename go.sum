@@ -32,8 +32,8 @@ github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ3
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/dimasardnt6/kemahasiswaan v0.0.2 h1:JzR2D13LOPu9aXdPqRAsCxQ9zCQyYhn//38JG1DfrT0=
-github.com/dimasardnt6/kemahasiswaan v0.0.2/go.mod h1:InZ/OhbHEIQmsoejSTPuAa6AzVlk86MlZx5aPMOJy/Y=
+github.com/dimasardnt6/kemahasiswaan v0.0.3 h1:MCS0PiCBNSwvEsM9T+kM0dkFO7vp1BCubUp8goMJet4=
+github.com/dimasardnt6/kemahasiswaan v0.0.3/go.mod h1:InZ/OhbHEIQmsoejSTPuAa6AzVlk86MlZx5aPMOJy/Y=
 github.com/dnaeon/go-vcr v1.1.0/go.mod h1:M7tiix8f0r6mKKJ3Yq/kqU1OYf3MnfmBWVbPx/yU9ko=
 github.com/dnaeon/go-vcr v1.2.0/go.mod h1:R4UdLID7HZT3taECzJs4YgbbH6PIGXB6W/sc5OLb6RQ=
 github.com/fasthttp/websocket v1.5.1 h1:iZsMv5OtZ1E52hhCnlOm/feLCrPhutlrZgvEGcZa1FM=
