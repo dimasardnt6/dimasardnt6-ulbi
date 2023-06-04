@@ -34,6 +34,9 @@ func Web(page *fiber.App) {
 	page.Post("/insrt-nilai", controller.InsertNilaiMahasiswa)
 	page.Post("/ins-kemahasiswaan", controller.InsertDataKemahasiswaan)
 
+	page.Put("/upd-kemahasiswaan/:id", controller.UpdateDataKemahasiswaan)
+	page.Delete("/delete-kemahasiswaan/:id", controller.DeleteKemahasiswaanByID)
+
 	page.Post("/ins", controller.InsertData)
 	page.Put("/upd/:id", controller.UpdateData)
 	page.Delete("/delete/:id", controller.DeletePresensiByID)
