@@ -569,7 +569,7 @@ func GetAntrianFromID(c *fiber.Ctx) error {
 			"message": "Invalid id parameter",
 		})
 	}
-	ps, err := moduleantrian.GetAntrianFromID(objID, config.Ulbimongoconn3, "data_pasien")
+	ps, err := moduleantrian.GetAntrianFromID(objID, config.Ulbimongoconn3, "data_antrian")
 	if err != nil {
 		if errors.Is(err, mongo.ErrNoDocuments) {
 			return c.Status(http.StatusNotFound).JSON(fiber.Map{
@@ -600,7 +600,7 @@ func GetPoliklinikFromID(c *fiber.Ctx) error {
 			"message": "Invalid id parameter",
 		})
 	}
-	ps, err := moduleantrian.GetPoliklinikFromID(objID, config.Ulbimongoconn3, "data_pasien")
+	ps, err := moduleantrian.GetPoliklinikFromID(objID, config.Ulbimongoconn3, "data_poliklinik")
 	if err != nil {
 		if errors.Is(err, mongo.ErrNoDocuments) {
 			return c.Status(http.StatusNotFound).JSON(fiber.Map{
@@ -630,7 +630,7 @@ func GetDokterFromID(c *fiber.Ctx) error {
 			"message": "Invalid id parameter",
 		})
 	}
-	ps, err := moduleantrian.GetDokterFromID(objID, config.Ulbimongoconn3, "data_pasien")
+	ps, err := moduleantrian.GetDokterFromID(objID, config.Ulbimongoconn3, "data_dokter")
 	if err != nil {
 		if errors.Is(err, mongo.ErrNoDocuments) {
 			return c.Status(http.StatusNotFound).JSON(fiber.Map{
