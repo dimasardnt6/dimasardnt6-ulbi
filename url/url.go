@@ -42,4 +42,30 @@ func Web(page *fiber.App) {
 	page.Delete("/delete/:id", controller.DeletePresensiByID)
 
 	page.Get("/docs/*", swagger.HandlerDefault)
+
+	// Endpoint Antrian Puskesmas
+	// Get Endpoint
+	page.Get("/all-pasien", controller.GetAllPasien)
+	page.Get("/all-antrian", controller.GetAllAntrian)
+	page.Get("/all-poliklinik", controller.GetAllPoliklinik)
+	page.Get("/all-dokter", controller.GetAllDokter)
+	page.Get("/pasien/:id", controller.GetPasienFromID)         //menampilkan data pasien berdasarkan id
+	page.Get("/antrian/:id", controller.GetAntrianFromID)       //menampilkan data antrian berdasarkan id
+	page.Get("/poliklinik/:id", controller.GetPoliklinikFromID) //menampilkan data poliklinik berdasarkan id
+	page.Get("/dokter/:id", controller.GetDokterFromID)         //menampilkan data dokter berdasarkan id
+
+	// Insert Endpoint
+	page.Post("/ins-pasien", controller.InsertPasien)
+	page.Post("/ins-antrian", controller.InsertAntrian)
+	page.Post("/ins-poliklinik", controller.InsertPoliklinik)
+	page.Post("/ins-dokter", controller.InsertDokter)
+
+	// Update Endpoint
+	page.Put("/upd-pasien/:id", controller.UpdatePasien)
+	page.Put("/upd-antrian/:id", controller.UpdateAntrian)
+	page.Put("/upd-poliklinik/:id", controller.UpdatePoliklinik)
+	page.Put("/upd-dokter/:id", controller.UpdateDokter)
+
+	// Delete Endpoint
+	page.Delete("/delete-pasien/:id", controller.DeleteAntrianByID)
 }

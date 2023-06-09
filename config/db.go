@@ -28,11 +28,18 @@ var DBUlbimongoinfo2 = atdb.DBInfo{
 	DBName:   "tes_db",
 }
 
+var DBUlbimongoinfo3 = atdb.DBInfo{
+	DBString: MongoString,
+	DBName:   "antrian_puskesmas",
+}
+
 var Ulbimariaconn = atdb.MariaConnect(DBUlbimariainfo)
 
 var Ulbimongoconn = atdb.MongoConnect(DBUlbimongoinfo)
 
 var Ulbimongoconn2 = atdb.MongoConnect(DBUlbimongoinfo2)
+
+var Ulbimongoconn3 = atdb.MongoConnect(DBUlbimongoinfo3)
 
 var Usertables = [4]whatsauth.LoginInfo{mhs, dosen, user, user1}
 
