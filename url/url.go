@@ -67,5 +67,8 @@ func Web(page *fiber.App) {
 	page.Put("/upd-dokter/:id", controller.UpdateDokter)
 
 	// Delete Endpoint
-	page.Delete("/delete-pasien/:id", controller.DeleteAntrianByID)
+	page.Delete("/delete-pasien/:id", controller.DeletePasienByID)
+	page.Delete("/delete-antrian/:id", controller.DeleteAntrianByID)
+	page.Delete("/delete-poliklinik/:id", controller.DeletePoliklinikByID)
+	page.Delete("/delete-dokter/:id", controller.DeleteDokterByID)
 }
