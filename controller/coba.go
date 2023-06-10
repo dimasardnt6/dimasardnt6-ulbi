@@ -741,7 +741,8 @@ func InsertDokter(c *fiber.Ctx) error {
 	}
 	insertedID, err := moduleantrian.InsertDokter(db, "data_dokter",
 		dokter.Nama_Dokter,
-		dokter.Spesialisasi)
+		dokter.Spesialisasi,
+		dokter.Poli)
 	if err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
@@ -918,7 +919,8 @@ func UpdateDokter(c *fiber.Ctx) error {
 	err = moduleantrian.UpdateDokter(db, "data_dokter",
 		objectID,
 		dokter.Nama_Dokter,
-		dokter.Spesialisasi)
+		dokter.Spesialisasi,
+		dokter.Poli)
 	if err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
@@ -933,6 +935,37 @@ func UpdateDokter(c *fiber.Ctx) error {
 }
 
 // Delete Function
+
+func DeletePasienByID(c *fiber.Ctx) error {
+	id := c.Params("id")
+	if id == "" {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": "Wrong parameter",
+		})
+	}
+
+	objID, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		return c.Status(http.StatusBadRequest).JSON(fiber.Map{
+			"status":  http.StatusBadRequest,
+			"message": "Invalid id parameter",
+		})
+	}
+
+	err = moduleantrian.DeletePasienByID(objID, config.Ulbimongoconn3, "data_pasien")
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": fmt.Sprintf("Error deleting data for id %s", id),
+		})
+	}
+
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"status":  http.StatusOK,
+		"message": fmt.Sprintf("Data with id %s deleted successfully", id),
+	})
+}
 
 func DeleteAntrianByID(c *fiber.Ctx) error {
 	id := c.Params("id")
@@ -983,6 +1016,37 @@ func DeletePoliklinikByID(c *fiber.Ctx) error {
 	}
 
 	err = moduleantrian.DeletePoliklinikByID(objID, config.Ulbimongoconn3, "data_poliklinik")
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": fmt.Sprintf("Error deleting data for id %s", id),
+		})
+	}
+
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"status":  http.StatusOK,
+		"message": fmt.Sprintf("Data with id %s deleted successfully", id),
+	})
+}
+
+func DeleteDokterByID(c *fiber.Ctx) error {
+	id := c.Params("id")
+	if id == "" {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": "Wrong parameter",
+		})
+	}
+
+	objID, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		return c.Status(http.StatusBadRequest).JSON(fiber.Map{
+			"status":  http.StatusBadRequest,
+			"message": "Invalid id parameter",
+		})
+	}
+
+	err = moduleantrian.DeleteDokterByID(objID, config.Ulbimongoconn3, "data_dokter")
 	if err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
