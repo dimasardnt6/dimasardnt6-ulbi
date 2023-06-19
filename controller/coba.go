@@ -689,7 +689,6 @@ func InsertAntrian(c *fiber.Ctx) error {
 	insertedID, err := moduleantrian.InsertAntrian(db, "data_antrian",
 		antrian.Poli,
 		antrian.Identitas_Pasien,
-		antrian.Nomor_Antrian,
 		antrian.Status_Antrian)
 	if err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
