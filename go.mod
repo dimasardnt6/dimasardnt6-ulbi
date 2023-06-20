@@ -26,7 +26,7 @@ require (
 	github.com/aiteung/atmessage v0.0.17 // indirect
 	github.com/aiteung/atmodel v0.0.2 // indirect
 	github.com/andybalholm/brotli v1.0.5 // indirect
-	github.com/dimasardnt6/BE-Antrian-Puskesmas v0.0.7
+	github.com/dimasardnt6/BE-Antrian-Puskesmas v0.0.8
 	github.com/fasthttp/websocket v1.5.1 // indirect
 	github.com/go-openapi/jsonpointer v0.19.6 // indirect
 	github.com/go-openapi/jsonreference v0.20.2 // indirect

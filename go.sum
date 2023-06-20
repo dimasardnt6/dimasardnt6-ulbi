@@ -34,8 +34,8 @@ github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ3
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/dimasardnt6/BE-Antrian-Puskesmas v0.0.7 h1:vR/LtC9ZoiUOU7iT3/RqcmzgiWB4X4PjiYr+LBlzWbI=
-github.com/dimasardnt6/BE-Antrian-Puskesmas v0.0.7/go.mod h1:Wqmjf9Wj5opQK3/5TCQ22Fr8TG4l1gYNLvTSy6d/Fo0=
+github.com/dimasardnt6/BE-Antrian-Puskesmas v0.0.8 h1:FqXQ8wFvp5DlnYS3RKUX077HovQqzeHaEr99GfuwaUE=
+github.com/dimasardnt6/BE-Antrian-Puskesmas v0.0.8/go.mod h1:Wqmjf9Wj5opQK3/5TCQ22Fr8TG4l1gYNLvTSy6d/Fo0=
 github.com/dimasardnt6/kemahasiswaan v0.0.4 h1:DFi9NkmTs1G/6HDGEycyPfVmCufwLM1qhudTbrk53cE=
 github.com/dimasardnt6/kemahasiswaan v0.0.4/go.mod h1:InZ/OhbHEIQmsoejSTPuAa6AzVlk86MlZx5aPMOJy/Y=
 github.com/dnaeon/go-vcr v1.1.0/go.mod h1:M7tiix8f0r6mKKJ3Yq/kqU1OYf3MnfmBWVbPx/yU9ko=
