@@ -646,18 +646,18 @@ func GetDokterFromID(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
-// Insert Function
+// Login Signup
 
 func SignUp(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
-	var data modelantrian.Pasien
+	var data modelantrian.User
 	if err := c.BodyParser(&data); err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
 			"message": err.Error(),
 		})
 	}
-	_, err := moduleantrian.SignUp(db, "data_pasien", data)
+	_, err := moduleantrian.SignUp(db, "data_user", data)
 	if err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
@@ -672,14 +672,14 @@ func SignUp(c *fiber.Ctx) error {
 
 func SignIn(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
-	var data modelantrian.Pasien
+	var data modelantrian.User
 	if err := c.BodyParser(&data); err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
 			"message": err.Error(),
 		})
 	}
-	user, err := moduleantrian.LogIn(db, "data_pasien", data)
+	user, err := moduleantrian.LogIn(db, "data_user", data)
 	if err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
@@ -689,6 +689,36 @@ func SignIn(c *fiber.Ctx) error {
 	return c.Status(http.StatusOK).JSON(fiber.Map{
 		"status":  http.StatusOK,
 		"message": "Selamat datang " + user,
+	})
+}
+
+// Insert Function
+func InsertUser(c *fiber.Ctx) error {
+	db := config.Ulbimongoconn3
+	var data modelantrian.User
+	if err := c.BodyParser(&data); err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	if data.FirstName == "" || data.LastName == "" || data.Email == "" || data.Password == "" {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": "Data tidak boleh kosong",
+		})
+	}
+	insertedID, err := moduleantrian.InsertUser(db, "data_user", data)
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"status":      http.StatusOK,
+		"message":     "Data berhasil disimpan.",
+		"inserted_id": insertedID,
 	})
 }
 
