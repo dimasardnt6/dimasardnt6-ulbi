@@ -50,7 +50,7 @@ func Web(page *fiber.App) {
 	page.Get("/all-antrian", controller.GetAllAntrian)
 	page.Get("/all-poliklinik", controller.GetAllPoliklinik)
 	page.Get("/all-dokter", controller.GetAllDokter)
-	page.Get("/pasien/:id", controller.GetUserFromID)           //menampilkan data pasien berdasarkan id
+	page.Get("/user/:id", controller.GetUserFromID)             //menampilkan data pasien berdasarkan id
 	page.Get("/pasien/:id", controller.GetPasienFromID)         //menampilkan data pasien berdasarkan id
 	page.Get("/antrian/:id", controller.GetAntrianFromID)       //menampilkan data antrian berdasarkan id
 	page.Get("/poliklinik/:id", controller.GetPoliklinikFromID) //menampilkan data poliklinik berdasarkan id
