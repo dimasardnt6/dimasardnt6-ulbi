@@ -648,35 +648,6 @@ func GetDokterFromID(c *fiber.Ctx) error {
 
 // Insert Function
 
-func InsertPasien(c *fiber.Ctx) error {
-	db := config.Ulbimongoconn3
-	var data modelantrian.Pasien
-	if err := c.BodyParser(&data); err != nil {
-		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
-			"status":  http.StatusInternalServerError,
-			"message": err.Error(),
-		})
-	}
-	if data.Nama_Pasien == "" || data.Nomor_Ktp == "" || data.Alamat == "" || data.Nomor_Telepon == "" || data.Tanggal_Lahir == "" || data.Jenis_Kelamin == "" || data.Email == "" || data.Password == "" {
-		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
-			"status":  http.StatusInternalServerError,
-			"message": "Data harus lengkap",
-		})
-	}
-	insertedID, err := moduleantrian.InsertOneDoc2(db, "data_pasien", data)
-	if err != nil {
-		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
-			"status":  http.StatusInternalServerError,
-			"message": err.Error(),
-		})
-	}
-	return c.Status(http.StatusOK).JSON(fiber.Map{
-		"status":      http.StatusOK,
-		"message":     "Data berhasil disimpan",
-		"inserted_id": insertedID,
-	})
-}
-
 func SignUp(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 	var data modelantrian.Pasien
@@ -721,34 +692,34 @@ func SignIn(c *fiber.Ctx) error {
 	})
 }
 
-// func InsertPasien(c *fiber.Ctx) error {
-// 	db := config.Ulbimongoconn3
-// 	var pasien modelantrian.Pasien
-// 	if err := c.BodyParser(&pasien); err != nil {
-// 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
-// 			"status":  http.StatusInternalServerError,
-// 			"message": err.Error(),
-// 		})
-// 	}
-// 	insertedID, err := moduleantrian.InsertPasien(db, "data_pasien",
-// 		pasien.Nama_Pasien,
-// 		pasien.Nomor_Ktp,
-// 		pasien.Alamat,
-// 		pasien.Nomor_Telepon,
-// 		pasien.Tanggal_Lahir,
-// 		pasien.Jenis_Kelamin)
-// 	if err != nil {
-// 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
-// 			"status":  http.StatusInternalServerError,
-// 			"message": err.Error(),
-// 		})
-// 	}
-// 	return c.Status(http.StatusOK).JSON(fiber.Map{
-// 		"status":      http.StatusOK,
-// 		"message":     "Data berhasil disimpan.",
-// 		"inserted_id": insertedID,
-// 	})
-// }
+func InsertPasien(c *fiber.Ctx) error {
+	db := config.Ulbimongoconn3
+	var pasien modelantrian.Pasien
+	if err := c.BodyParser(&pasien); err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	insertedID, err := moduleantrian.InsertPasien(db, "data_pasien",
+		pasien.Nama_Pasien,
+		pasien.Nomor_Ktp,
+		pasien.Alamat,
+		pasien.Nomor_Telepon,
+		pasien.Tanggal_Lahir,
+		pasien.Jenis_Kelamin)
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"status":      http.StatusOK,
+		"message":     "Data berhasil disimpan.",
+		"inserted_id": insertedID,
+	})
+}
 
 func InsertAntrian(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
