@@ -825,7 +825,8 @@ func InsertPoliklinik(c *fiber.Ctx) error {
 	insertedID, err := moduleantrian.InsertPoliklinik(db, "data_poliklinik",
 		poliklinik.Kode_Poliklinik,
 		poliklinik.Nama_Poliklinik,
-		poliklinik.Deskripsi)
+		poliklinik.Deskripsi,
+		poliklinik.Identitas_Dokter)
 	if err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
@@ -850,8 +851,7 @@ func InsertDokter(c *fiber.Ctx) error {
 	}
 	insertedID, err := moduleantrian.InsertDokter(db, "data_dokter",
 		dokter.Nama_Dokter,
-		dokter.Spesialisasi,
-		dokter.Poli)
+		dokter.Spesialisasi)
 	if err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
@@ -986,7 +986,8 @@ func UpdatePoliklinik(c *fiber.Ctx) error {
 		objectID,
 		poliklinik.Kode_Poliklinik,
 		poliklinik.Nama_Poliklinik,
-		poliklinik.Deskripsi)
+		poliklinik.Deskripsi,
+		poliklinik.Identitas_Dokter)
 	if err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
@@ -1028,8 +1029,7 @@ func UpdateDokter(c *fiber.Ctx) error {
 	err = moduleantrian.UpdateDokter(db, "data_dokter",
 		objectID,
 		dokter.Nama_Dokter,
-		dokter.Spesialisasi,
-		dokter.Poli)
+		dokter.Spesialisasi)
 	if err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
