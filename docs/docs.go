@@ -109,7 +109,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Presensi"
+                    "Get All"
                 ],
                 "summary": "Get All Data Presensi.",
                 "responses": {

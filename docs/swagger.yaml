@@ -158,7 +158,7 @@ paths:
             $ref: '#/definitions/controller.Presensi'
       summary: Get All Data Presensi.
       tags:
-      - Presensi
+      - Get All
   /presensi/{id}:
     get:
       consumes:

@@ -77,4 +77,6 @@ func Web(page *fiber.App) {
 	// Signup-Login Endpoint
 	page.Post("/sign-up", controller.SignUp)
 	page.Post("/sign-in", controller.SignIn)
+
+	page.Get("/docs/*", swagger.HandlerDefault)
 }
