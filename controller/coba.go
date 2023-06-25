@@ -506,6 +506,14 @@ func GetAllUser(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
+// GetAllPasien godoc
+// @Summary Get All Data Pasien.
+// @Description Mengambil semua data pasien.
+// @Tags Pasien
+// @Accept json
+// @Produce json
+// @Success 200 {object} Pasien
+// @Router /pasien [get]
 func GetAllPasien(c *fiber.Ctx) error {
 	ps := moduleantrian.GetAllPasien(config.Ulbimongoconn3, "data_pasien")
 	return c.JSON(ps)

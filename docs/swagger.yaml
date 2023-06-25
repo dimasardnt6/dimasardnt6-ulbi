@@ -61,6 +61,23 @@ definitions:
         example: "08123456789"
         type: string
     type: object
+  controller.Pasien:
+    properties:
+      _id:
+        type: string
+      alamat:
+        type: string
+      jenis_kelamin:
+        type: string
+      nama_pasien:
+        type: string
+      nomor_ktp:
+        type: string
+      nomor_telepon:
+        type: string
+      tanggal_lahir:
+        type: string
+    type: object
   controller.Presensi:
     properties:
       biodata:
@@ -144,6 +161,21 @@ paths:
       summary: Insert data presensi.
       tags:
       - Presensi
+  /pasien:
+    get:
+      consumes:
+      - application/json
+      description: Mengambil semua data pasien.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Pasien'
+      summary: Get All Data Pasien.
+      tags:
+      - Pasien
   /presensi:
     get:
       consumes:

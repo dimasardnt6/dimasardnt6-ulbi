@@ -92,6 +92,29 @@
                 }
             }
         },
+        "/pasien": {
+            "get": {
+                "description": "Mengambil semua data pasien.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Pasien"
+                ],
+                "summary": "Get All Data Pasien.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Pasien"
+                        }
+                    }
+                }
+            }
+        },
         "/presensi": {
             "get": {
                 "description": "Mengambil semua data presensi.",
@@ -284,6 +307,32 @@
                 "phone_number": {
                     "type": "string",
                     "example": "08123456789"
+                }
+            }
+        },
+        "controller.Pasien": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "alamat": {
+                    "type": "string"
+                },
+                "jenis_kelamin": {
+                    "type": "string"
+                },
+                "nama_pasien": {
+                    "type": "string"
+                },
+                "nomor_ktp": {
+                    "type": "string"
+                },
+                "nomor_telepon": {
+                    "type": "string"
+                },
+                "tanggal_lahir": {
+                    "type": "string"
                 }
             }
         },
