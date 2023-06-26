@@ -746,7 +746,7 @@ func InsertUser(c *fiber.Ctx) error {
 			"message": err.Error(),
 		})
 	}
-	if data.FirstName == "" || data.LastName == "" || data.Email == "" || data.Password == "" {
+	if data.Fullname == "" || data.Email == "" || data.Password == "" {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
 			"message": "Data tidak boleh kosong",
