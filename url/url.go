@@ -73,6 +73,7 @@ func Web(page *fiber.App) {
 	page.Delete("/delete-antrian/:id", controller.DeleteAntrianByID)
 	page.Delete("/delete-poliklinik/:id", controller.DeletePoliklinikByID)
 	page.Delete("/delete-dokter/:id", controller.DeleteDokterByID)
+	page.Delete("/delete-user/:id", controller.DeleteUserByID)
 
 	// Signup-Login Endpoint
 	page.Post("/sign-up", controller.SignUp)
