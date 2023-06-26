@@ -38,6 +38,8 @@ github.com/dimasardnt6/BE-Antrian-Puskesmas v0.0.10 h1:TnUeAygzjtPpLcNuFwgCJ22/4
 github.com/dimasardnt6/BE-Antrian-Puskesmas v0.0.10/go.mod h1:Wqmjf9Wj5opQK3/5TCQ22Fr8TG4l1gYNLvTSy6d/Fo0=
 github.com/dimasardnt6/BE-Antrian-Puskesmas v0.0.11 h1:b5GU5FWLRrxBBf/v5rssmS7/yhShOJVaX7SlD/IAgp4=
 github.com/dimasardnt6/BE-Antrian-Puskesmas v0.0.11/go.mod h1:Wqmjf9Wj5opQK3/5TCQ22Fr8TG4l1gYNLvTSy6d/Fo0=
+github.com/dimasardnt6/BE-Antrian-Puskesmas v0.0.12 h1:EtUYug/1p+q+HLffYqPt1W9QJzHUXMyCOa9RL1IYb0k=
+github.com/dimasardnt6/BE-Antrian-Puskesmas v0.0.12/go.mod h1:Wqmjf9Wj5opQK3/5TCQ22Fr8TG4l1gYNLvTSy6d/Fo0=
 github.com/dimasardnt6/kemahasiswaan v0.0.4 h1:DFi9NkmTs1G/6HDGEycyPfVmCufwLM1qhudTbrk53cE=
 github.com/dimasardnt6/kemahasiswaan v0.0.4/go.mod h1:InZ/OhbHEIQmsoejSTPuAa6AzVlk86MlZx5aPMOJy/Y=
 github.com/dnaeon/go-vcr v1.1.0/go.mod h1:M7tiix8f0r6mKKJ3Yq/kqU1OYf3MnfmBWVbPx/yU9ko=
