@@ -3,6 +3,7 @@ package controller
 import (
 	"errors"
 	"fmt"
+	"time"
 
 	cek "github.com/aiteung/presensi"
 	"github.com/dimasardnt6/dimasardnt6-ulbi/config"
@@ -13,6 +14,7 @@ import (
 	inimodellatihan "github.com/indrariksa/be_presensi/model"
 	inimodullatihan "github.com/indrariksa/be_presensi/module"
 
+	"github.com/dgrijalva/jwt-go"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 
@@ -714,6 +716,9 @@ func SignUp(c *fiber.Ctx) error {
 	})
 }
 
+// Define a secret key for signing the JWT token
+var jwtSecret = []byte("secret-key")
+
 func SignIn(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 	var data modelantrian.User
@@ -723,18 +728,82 @@ func SignIn(c *fiber.Ctx) error {
 			"message": err.Error(),
 		})
 	}
-	user, err := moduleantrian.LogIn(db, "data_user", data)
+
+	email, err := moduleantrian.LogIn(db, "data_user", data)
 	if err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
 			"message": err.Error(),
 		})
 	}
+
+	// Generate JWT token
+	token := jwt.New(jwt.SigningMethodHS256)
+	claims := token.Claims.(jwt.MapClaims)
+	claims["email"] = data.Email
+	claims["exp"] = time.Now().Add(time.Hour * 24).Unix() // Set token expiration time to 24 hours
+
+	// Sign the token with the secret key
+	tokenString, err := token.SignedString(jwtSecret)
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+
 	return c.Status(http.StatusOK).JSON(fiber.Map{
 		"status":  http.StatusOK,
-		"message": "Selamat datang " + user,
+		"message": "Selamat datang " + data.Fullname,
+		"email":   email,
+		"token":   tokenString,
 	})
 }
+
+func AuthenticateMiddleware(c *fiber.Ctx) error {
+	tokenString := c.Get("Authorization") // Assuming the token is sent in the Authorization header
+
+	// Verify the token
+	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
+		// Check the signing method
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, fmt.Errorf("invalid signing method")
+		}
+		return jwtSecret, nil
+	})
+
+	if err != nil || !token.Valid {
+		return c.Status(http.StatusUnauthorized).JSON(fiber.Map{
+			"status":  http.StatusUnauthorized,
+			"message": "Invalid or expired token",
+		})
+	}
+
+	// Token is valid, proceed with the request
+	return c.Next()
+}
+
+// func SignIn(c *fiber.Ctx) error {
+// 	db := config.Ulbimongoconn3
+// 	var data modelantrian.User
+// 	if err := c.BodyParser(&data); err != nil {
+// 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+// 			"status":  http.StatusInternalServerError,
+// 			"message": err.Error(),
+// 		})
+// 	}
+// 	user, err := moduleantrian.LogIn(db, "data_user", data)
+// 	if err != nil {
+// 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+// 			"status":  http.StatusInternalServerError,
+// 			"message": err.Error(),
+// 		})
+// 	}
+// 	return c.Status(http.StatusOK).JSON(fiber.Map{
+// 		"status":  http.StatusOK,
+// 		"message": "Selamat datang " + user,
+// 	})
+// }
 
 // Insert Function
 func InsertUser(c *fiber.Ctx) error {

@@ -6,6 +6,7 @@ require (
 	github.com/aiteung/atdb v0.0.11
 	github.com/aiteung/musik v0.0.5
 	github.com/aiteung/presensi v0.0.34
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/dimasardnt6/kemahasiswaan v0.0.4
 	github.com/gofiber/fiber/v2 v2.46.0
 	github.com/gofiber/swagger v0.1.12
@@ -26,7 +27,7 @@ require (
 	github.com/aiteung/atmessage v0.0.17 // indirect
 	github.com/aiteung/atmodel v0.0.2 // indirect
 	github.com/andybalholm/brotli v1.0.5 // indirect
-	github.com/dimasardnt6/BE-Antrian-Puskesmas v0.0.13
+	github.com/dimasardnt6/BE-Antrian-Puskesmas v0.0.14
 	github.com/fasthttp/websocket v1.5.1 // indirect
 	github.com/go-openapi/jsonpointer v0.19.6 // indirect
 	github.com/go-openapi/jsonreference v0.20.2 // indirect
