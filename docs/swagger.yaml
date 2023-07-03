@@ -1,5 +1,29 @@
 basePath: /
 definitions:
+  controller.Antrian:
+    properties:
+      _id:
+        type: string
+      identitas_pasien:
+        $ref: '#/definitions/controller.Pasien'
+      nomor_antrian:
+        type: integer
+      poli:
+        $ref: '#/definitions/controller.Poliklinik'
+      status_antrian:
+        description: Tanggal_Pendaftaran primitive.DateTime `bson:"tanggal_pendaftaran,omitempty"
+          json:"tanggal_pendaftaran,omitempty"`
+        type: string
+    type: object
+  controller.Dokter:
+    properties:
+      _id:
+        type: string
+      nama_dokter:
+        type: string
+      spesialisasi:
+        type: string
+    type: object
   controller.JamKerja:
     properties:
       durasi:
@@ -78,6 +102,19 @@ definitions:
       tanggal_lahir:
         type: string
     type: object
+  controller.Poliklinik:
+    properties:
+      _id:
+        type: string
+      deskripsi:
+        type: string
+      dokter:
+        $ref: '#/definitions/controller.Dokter'
+      kode_poliklinik:
+        type: string
+      nama_poliklinik:
+        type: string
+    type: object
   controller.Presensi:
     properties:
       biodata:
@@ -99,6 +136,23 @@ definitions:
         example: "08123456789"
         type: string
     type: object
+  controller.User:
+    properties:
+      _id:
+        type: string
+      confirmpass:
+        type: string
+      email:
+        type: string
+      firstname:
+        type: string
+      lastname:
+        type: string
+      password:
+        type: string
+      salt:
+        type: string
+    type: object
 host: dimasardnt6-ulbi.herokuapp.com
 info:
   contact:
@@ -112,6 +166,48 @@ info:
   title: Fiber Example API
   version: "1.0"
 paths:
+  /antrian:
+    get:
+      consumes:
+      - application/json
+      description: Mengambil semua data antrian.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Antrian'
+      summary: Get All Data Antrian.
+      tags:
+      - Antrian
+  /antrian/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Ambil per ID data antrian.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Antrian'
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get By ID Data Antrian.
+      tags:
+      - Antrian
   /delete/{id}:
     delete:
       consumes:
@@ -135,6 +231,48 @@ paths:
       summary: Delete data presensi.
       tags:
       - Presensi
+  /dokter:
+    get:
+      consumes:
+      - application/json
+      description: Mengambil semua data dokter.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Dokter'
+      summary: Get All Data Dokter.
+      tags:
+      - Dokter
+  /dokter/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Ambil per ID data dokter.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Dokter'
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get By ID Data Dokter.
+      tags:
+      - Dokter
   /ins:
     post:
       consumes:
@@ -176,6 +314,75 @@ paths:
       summary: Get All Data Pasien.
       tags:
       - Pasien
+  /pasien/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Ambil per ID data pasien.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Pasien'
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get By ID Data Pasien.
+      tags:
+      - Pasien
+  /poliklinik:
+    get:
+      consumes:
+      - application/json
+      description: Mengambil semua data poliklinik.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Poliklinik'
+      summary: Get All Data Poliklinik.
+      tags:
+      - Poliklinik
+  /poliklinik/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Ambil per ID data poliklinik.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Poliklinik'
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get By ID Data Poliklinik.
+      tags:
+      - Poliklinik
   /presensi:
     get:
       consumes:
@@ -249,4 +456,46 @@ paths:
       summary: Update data presensi.
       tags:
       - Presensi
+  /user:
+    get:
+      consumes:
+      - application/json
+      description: Mengambil semua data user.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.User'
+      summary: Get All Data User.
+      tags:
+      - User
+  /user/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Ambil per ID data user.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.User'
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get By ID Data User.
+      tags:
+      - User
 swagger: "2.0"

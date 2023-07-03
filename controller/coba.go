@@ -503,6 +503,14 @@ func DeleteKemahasiswaanByID(c *fiber.Ctx) error {
 
 // Get All Function
 
+// GetAllUser godoc
+// @Summary Get All Data User.
+// @Description Mengambil semua data user.
+// @Tags User
+// @Accept json
+// @Produce json
+// @Success 200 {object} User
+// @Router /user [get]
 func GetAllUser(c *fiber.Ctx) error {
 	ps := moduleantrian.GetAllUser(config.Ulbimongoconn3, "data_user")
 	return c.JSON(ps)
@@ -521,16 +529,40 @@ func GetAllPasien(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
+// GetAllAntrian godoc
+// @Summary Get All Data Antrian.
+// @Description Mengambil semua data antrian.
+// @Tags Antrian
+// @Accept json
+// @Produce json
+// @Success 200 {object} Antrian
+// @Router /antrian [get]
 func GetAllAntrian(c *fiber.Ctx) error {
 	ps := moduleantrian.GetAllAntrian(config.Ulbimongoconn3, "data_antrian")
 	return c.JSON(ps)
 }
 
+// GetAllPoliklinik godoc
+// @Summary Get All Data Poliklinik.
+// @Description Mengambil semua data poliklinik.
+// @Tags Poliklinik
+// @Accept json
+// @Produce json
+// @Success 200 {object} Poliklinik
+// @Router /poliklinik [get]
 func GetAllPoliklinik(c *fiber.Ctx) error {
 	ps := moduleantrian.GetAllPoliklinik(config.Ulbimongoconn3, "data_poliklinik")
 	return c.JSON(ps)
 }
 
+// GetAllDokter godoc
+// @Summary Get All Data Dokter.
+// @Description Mengambil semua data dokter.
+// @Tags Dokter
+// @Accept json
+// @Produce json
+// @Success 200 {object} Dokter
+// @Router /dokter [get]
 func GetAllDokter(c *fiber.Ctx) error {
 	ps := moduleantrian.GetAllDokter(config.Ulbimongoconn3, "data_dokter")
 	return c.JSON(ps)
@@ -538,6 +570,18 @@ func GetAllDokter(c *fiber.Ctx) error {
 
 // Get From ID
 
+// GetUserFromID godoc
+// @Summary Get By ID Data User.
+// @Description Ambil per ID data user.
+// @Tags User
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200 {object} User
+// @Failure 400
+// @Failure 404
+// @Failure 500
+// @Router /user/{id} [get]
 func GetUserFromID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -569,6 +613,18 @@ func GetUserFromID(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
+// GetPasienFromID godoc
+// @Summary Get By ID Data Pasien.
+// @Description Ambil per ID data pasien.
+// @Tags Pasien
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200 {object} Pasien
+// @Failure 400
+// @Failure 404
+// @Failure 500
+// @Router /pasien/{id} [get]
 func GetPasienFromID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -600,6 +656,18 @@ func GetPasienFromID(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
+// GetAntrianFromID godoc
+// @Summary Get By ID Data Antrian.
+// @Description Ambil per ID data antrian.
+// @Tags Antrian
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200 {object} Antrian
+// @Failure 400
+// @Failure 404
+// @Failure 500
+// @Router /antrian/{id} [get]
 func GetAntrianFromID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -631,6 +699,18 @@ func GetAntrianFromID(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
+// GetPoliklinikFromID godoc
+// @Summary Get By ID Data Poliklinik.
+// @Description Ambil per ID data poliklinik.
+// @Tags Poliklinik
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200 {object} Poliklinik
+// @Failure 400
+// @Failure 404
+// @Failure 500
+// @Router /poliklinik/{id} [get]
 func GetPoliklinikFromID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -661,6 +741,19 @@ func GetPoliklinikFromID(c *fiber.Ctx) error {
 	}
 	return c.JSON(ps)
 }
+
+// GetDokterFormID godoc
+// @Summary Get By ID Data Dokter.
+// @Description Ambil per ID data dokter.
+// @Tags Dokter
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200 {object} Dokter
+// @Failure 400
+// @Failure 404
+// @Failure 500
+// @Router /dokter/{id} [get]
 func GetDokterFromID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -806,6 +899,18 @@ func AuthenticateMiddleware(c *fiber.Ctx) error {
 // }
 
 // Insert Function
+
+// InsertUser godoc
+// @Summary Insert data user.
+// @Description Input data user.
+// @Tags User
+// @Accept json
+// @Produce json
+// @Param request body User true "Payload Body [RAW]"
+// @Success 200 {object} User
+// @Failure 400
+// @Failure 500
+// @Router /ins [post]
 func InsertUser(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 	var data modelantrian.User
@@ -835,6 +940,17 @@ func InsertUser(c *fiber.Ctx) error {
 	})
 }
 
+// InsertPasien godoc
+// @Summary Insert data pasieni.
+// @Description Input data pasien.
+// @Tags Pasien
+// @Accept json
+// @Produce json
+// @Param request body Pasien true "Payload Body [RAW]"
+// @Success 200 {object} Pasien
+// @Failure 400
+// @Failure 500
+// @Router /ins [post]
 func InsertPasien(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 	var pasien modelantrian.Pasien
@@ -864,6 +980,17 @@ func InsertPasien(c *fiber.Ctx) error {
 	})
 }
 
+// InsertAntrian godoc
+// @Summary Insert data antrian.
+// @Description Input data antrian.
+// @Tags Antrian
+// @Accept json
+// @Produce json
+// @Param request body Antrian true "Payload Body [RAW]"
+// @Success 200 {object} Antrian
+// @Failure 400
+// @Failure 500
+// @Router /ins [post]
 func InsertAntrian(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 	var antrian modelantrian.Antrian
@@ -890,6 +1017,17 @@ func InsertAntrian(c *fiber.Ctx) error {
 	})
 }
 
+// InsertPoliklinik godoc
+// @Summary Insert data poliklinik.
+// @Description Input data poliklinik.
+// @Tags Poliklinik
+// @Accept json
+// @Produce json
+// @Param request body Poliklinik true "Payload Body [RAW]"
+// @Success 200 {object} Poliklinik
+// @Failure 400
+// @Failure 500
+// @Router /ins [post]
 func InsertPoliklinik(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 	var poliklinik modelantrian.Poliklinik
@@ -917,6 +1055,17 @@ func InsertPoliklinik(c *fiber.Ctx) error {
 	})
 }
 
+// InsertDokter godoc
+// @Summary Insert data dokteri.
+// @Description Input data dokter.
+// @Tags dokter
+// @Accept json
+// @Produce json
+// @Param request body dokter true "Payload Body [RAW]"
+// @Success 200 {object} dokter
+// @Failure 400
+// @Failure 500
+// @Router /ins [post]
 func InsertDokter(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 	var dokter modelantrian.Dokter
@@ -944,6 +1093,18 @@ func InsertDokter(c *fiber.Ctx) error {
 
 // Update Function
 
+// UpdatePasien godoc
+// @Summary Update data pasien.
+// @Description Ubah data pasien.
+// @Tags Pasien
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Param request body Pasien true "Payload Body [RAW]"
+// @Success 200 {object} Pasien
+// @Failure 400
+// @Failure 500
+// @Router /upd/{id} [put]
 func UpdatePasien(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 
@@ -990,6 +1151,18 @@ func UpdatePasien(c *fiber.Ctx) error {
 	})
 }
 
+// UpdateAntrian godoc
+// @Summary Update data antrian.
+// @Description Ubah data antrian.
+// @Tags Antrian
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Param request body Antrian true "Payload Body [RAW]"
+// @Success 200 {object} Antrian
+// @Failure 400
+// @Failure 500
+// @Router /upd/{id} [put]
 func UpdateAntrian(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 
@@ -1034,6 +1207,18 @@ func UpdateAntrian(c *fiber.Ctx) error {
 	})
 }
 
+// UpdatePoliklinik godoc
+// @Summary Update data polklinik.
+// @Description Ubah data poliklinik.
+// @Tags Poliklinik
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Param request body Poliklink true "Payload Body [RAW]"
+// @Success 200 {object} Poliklinik
+// @Failure 400
+// @Failure 500
+// @Router /upd/{id} [put]
 func UpdatePoliklinik(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 
@@ -1078,6 +1263,18 @@ func UpdatePoliklinik(c *fiber.Ctx) error {
 	})
 }
 
+// UpdateDokter godoc
+// @Summary Update data dokter.
+// @Description Ubah data dokter.
+// @Tags Dokter
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Param request body Dokter true "Payload Body [RAW]"
+// @Success 200 {object} Dokter
+// @Failure 400
+// @Failure 500
+// @Router /upd/{id} [put]
 func UpdateDokter(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 
@@ -1122,6 +1319,17 @@ func UpdateDokter(c *fiber.Ctx) error {
 
 // Delete Function
 
+// DeletePasienByID godoc
+// @Summary Delete data pasien.
+// @Description Hapus data pasien.
+// @Tags Pasien
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200
+// @Failure 400
+// @Failure 500
+// @Router /delete/{id} [delete]
 func DeletePasienByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -1153,6 +1361,17 @@ func DeletePasienByID(c *fiber.Ctx) error {
 	})
 }
 
+// DeleteAntrianByID godoc
+// @Summary Delete data antrian.
+// @Description Hapus data antrian.
+// @Tags Antrian
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200
+// @Failure 400
+// @Failure 500
+// @Router /delete/{id} [delete]
 func DeleteAntrianByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -1184,6 +1403,17 @@ func DeleteAntrianByID(c *fiber.Ctx) error {
 	})
 }
 
+// DeletePoliklinikByID godoc
+// @Summary Delete data poliklinik.
+// @Description Hapus data poliklinik.
+// @Tags Poliklinik
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200
+// @Failure 400
+// @Failure 500
+// @Router /delete/{id} [delete]
 func DeletePoliklinikByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -1215,6 +1445,17 @@ func DeletePoliklinikByID(c *fiber.Ctx) error {
 	})
 }
 
+// DeleteDokterByID godoc
+// @Summary Delete data dokter.
+// @Description Hapus data dokter.
+// @Tags Dokter
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200
+// @Failure 400
+// @Failure 500
+// @Router /delete/{id} [delete]
 func DeleteDokterByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -1246,6 +1487,17 @@ func DeleteDokterByID(c *fiber.Ctx) error {
 	})
 }
 
+// DeleteUserByID godoc
+// @Summary Delete data user.
+// @Description Hapus data user.
+// @Tags user
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200
+// @Failure 400
+// @Failure 500
+// @Router /delete/{id} [delete]
 func DeleteUserByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
