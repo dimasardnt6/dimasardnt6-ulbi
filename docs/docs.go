@@ -1259,23 +1259,21 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "confirmpass": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "bdn68"
                 },
                 "email": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "budiono@gmail.com"
                 },
-                "firstname": {
-                    "description": "ID              primitive.ObjectID ` + "`" + `bson:\"_id,omitempty\" json:\"_id,omitempty\" example:\"123456789\"` + "`" + `",
-                    "type": "string"
-                },
-                "lastname": {
-                    "type": "string"
+                "fullname": {
+                    "description": "ID              primitive.ObjectID ` + "`" + `bson:\"_id,omitempty\" json:\"_id,omitempty\"` + "`" + `",
+                    "type": "string",
+                    "example": "Budiono"
                 },
                 "password": {
-                    "type": "string"
-                },
-                "salt": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "bdn68"
                 }
             }
         }

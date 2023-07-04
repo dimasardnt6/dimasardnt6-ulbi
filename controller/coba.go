@@ -853,7 +853,6 @@ func SignIn(c *fiber.Ctx) error {
 	})
 }
 
-
 func AuthenticateMiddleware(c *fiber.Ctx) error {
 	tokenString := c.Get("Authorization") // Assuming the token is sent in the Authorization header
 

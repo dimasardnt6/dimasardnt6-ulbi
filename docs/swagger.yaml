@@ -152,18 +152,17 @@ definitions:
   controller.User:
     properties:
       confirmpass:
+        example: bdn68
         type: string
       email:
+        example: budiono@gmail.com
         type: string
-      firstname:
-        description: ID              primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"
-          example:"123456789"`
-        type: string
-      lastname:
+      fullname:
+        description: ID              primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
+        example: Budiono
         type: string
       password:
-        type: string
-      salt:
+        example: bdn68
         type: string
     type: object
 host: dimasardnt6-ulbi.herokuapp.com

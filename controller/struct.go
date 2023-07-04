@@ -78,13 +78,15 @@ type Presensi struct {
 
 //struct antrian puskesmas 
 type User struct {
-	// ID              primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" example:"123456789"`
-	FirstName       string             `bson:"firstname,omitempty" json:"firstname,omitempty"`
-	LastName        string             `bson:"lastname,omitempty" json:"lastname,omitempty"`
-	Email           string             `bson:"email,omitempty" json:"email,omitempty"`
-	Password        string             `bson:"password,omitempty" json:"password,omitempty"`
-	Confirmpassword string             `bson:"confirmpass,omitempty" json:"confirmpass,omitempty"`
-	Salt            string             `bson:"salt,omitempty" json:"salt,omitempty"`
+	// ID              primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
+	Fullname        string             `bson:"fullname,omitempty" json:"fullname,omitempty" example:"Budiono"`
+	Email           string             `bson:"email,omitempty" json:"email,omitempty" example:"budiono@gmail.com"`
+	Password        string             `bson:"password,omitempty" json:"password,omitempty" example:"bdn68"`
+	Confirmpassword string             `bson:"confirmpass,omitempty" json:"confirmpass,omitempty" example:"bdn68"`
+}
+
+type Token struct {
+	Token_String string `bson:"tokenstring,omitempty" json:"tokenstring,omitempty"`
 }
 
 type Pasien struct {
