@@ -107,7 +107,7 @@ type Antrian struct {
 }
 
 type Poliklinik struct {
-	ID               primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
+	// ID               primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
 	Kode_Poliklinik  string             `bson:"kode_poliklinik,omitempty" json:"kode_poliklinik,omitempty"`
 	Nama_Poliklinik  string             `bson:"nama_poliklinik,omitempty" json:"nama_poliklinik,omitempty"`
 	Deskripsi        string             `bson:"deskripsi,omitempty" json:"deskripsi,omitempty"`

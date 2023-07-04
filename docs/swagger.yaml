@@ -104,13 +104,12 @@ definitions:
     type: object
   controller.Poliklinik:
     properties:
-      _id:
-        type: string
       deskripsi:
         type: string
       dokter:
         $ref: '#/definitions/controller.Dokter'
       kode_poliklinik:
+        description: ID               primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
         type: string
       nama_poliklinik:
         type: string
@@ -544,6 +543,130 @@ paths:
       summary: Get By ID Data Presensi.
       tags:
       - Presensi
+  /upd-antrian/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Ubah data antrian.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Payload Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controller.Antrian'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Antrian'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Update data antrian.
+      tags:
+      - Antrian
+  /upd-dokter/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Ubah data dokter.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Payload Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controller.Dokter'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Dokter'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Update data dokter.
+      tags:
+      - Dokter
+  /upd-pasien/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Ubah data pasien.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Payload Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controller.Pasien'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Pasien'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Update data pasien.
+      tags:
+      - Pasien
+  /upd-poliklinik/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Ubah data poliklinik.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Payload Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controller.Poliklinik'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Poliklinik'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Update data poliklinik.
+      tags:
+      - Poliklinik
   /upd/{id}:
     put:
       consumes:

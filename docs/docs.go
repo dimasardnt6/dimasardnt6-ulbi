@@ -602,6 +602,194 @@ const docTemplate = `{
                 }
             }
         },
+        "/upd-antrian/{id}": {
+            "put": {
+                "description": "Ubah data antrian.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Antrian"
+                ],
+                "summary": "Update data antrian.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Payload Body [RAW]",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controller.Antrian"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Antrian"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/upd-dokter/{id}": {
+            "put": {
+                "description": "Ubah data dokter.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dokter"
+                ],
+                "summary": "Update data dokter.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Payload Body [RAW]",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controller.Dokter"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Dokter"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/upd-pasien/{id}": {
+            "put": {
+                "description": "Ubah data pasien.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Pasien"
+                ],
+                "summary": "Update data pasien.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Payload Body [RAW]",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controller.Pasien"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Pasien"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/upd-poliklinik/{id}": {
+            "put": {
+                "description": "Ubah data poliklinik.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Poliklinik"
+                ],
+                "summary": "Update data poliklinik.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Payload Body [RAW]",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controller.Poliklinik"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Poliklinik"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
         "/upd/{id}": {
             "put": {
                 "description": "Ubah data presensi.",
@@ -838,9 +1026,6 @@ const docTemplate = `{
         "controller.Poliklinik": {
             "type": "object",
             "properties": {
-                "_id": {
-                    "type": "string"
-                },
                 "deskripsi": {
                     "type": "string"
                 },
@@ -848,6 +1033,7 @@ const docTemplate = `{
                     "$ref": "#/definitions/controller.Dokter"
                 },
                 "kode_poliklinik": {
+                    "description": "ID               primitive.ObjectID ` + "`" + `bson:\"_id,omitempty\" json:\"_id,omitempty\"` + "`" + `",
                     "type": "string"
                 },
                 "nama_poliklinik": {
