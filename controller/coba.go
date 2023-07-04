@@ -821,6 +821,7 @@ func SignUp(c *fiber.Ctx) error {
 }
 
 // Define a secret key for signing the JWT token
+var jwtSecret = []byte("secret-key")
 
 // SignIn godoc
 // @Summary data SignIn User.
@@ -833,8 +834,6 @@ func SignUp(c *fiber.Ctx) error {
 // @Failure 400
 // @Failure 500
 // @Router /sign-in [post]
-var jwtSecret = []byte("secret-key")
-
 func SignIn(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 	var data modelantrian.User
