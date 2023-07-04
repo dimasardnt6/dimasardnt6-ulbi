@@ -510,9 +510,9 @@ func DeleteKemahasiswaanByID(c *fiber.Ctx) error {
 // @Accept json
 // @Produce json
 // @Success 200 {object} User
-// @Router /user [get]
+// @Router /data_user [get]
 func GetAllUser(c *fiber.Ctx) error {
-	ps := moduleantrian.GetAllUser(config.Ulbimongoconn3, "data_user")
+	ps := moduleantrian.GetAllUser(config.Ulbimongoconn, "data_user")
 	return c.JSON(ps)
 }
 
@@ -523,7 +523,7 @@ func GetAllUser(c *fiber.Ctx) error {
 // @Accept json
 // @Produce json
 // @Success 200 {object} Pasien
-// @Router /pasien [get]
+// @Router /data_pasien [get]
 func GetAllPasien(c *fiber.Ctx) error {
 	ps := moduleantrian.GetAllPasien(config.Ulbimongoconn3, "data_pasien")
 	return c.JSON(ps)
@@ -536,7 +536,7 @@ func GetAllPasien(c *fiber.Ctx) error {
 // @Accept json
 // @Produce json
 // @Success 200 {object} Antrian
-// @Router /all-antrian [get]
+// @Router /data_antrian [get]
 func GetAllAntrian(c *fiber.Ctx) error {
 	ps := moduleantrian.GetAllAntrian(config.Ulbimongoconn3, "data_antrian")
 	return c.JSON(ps)
@@ -549,7 +549,7 @@ func GetAllAntrian(c *fiber.Ctx) error {
 // @Accept json
 // @Produce json
 // @Success 200 {object} Poliklinik
-// @Router /poliklinik [get]
+// @Router /data_poliklinik [get]
 func GetAllPoliklinik(c *fiber.Ctx) error {
 	ps := moduleantrian.GetAllPoliklinik(config.Ulbimongoconn3, "data_poliklinik")
 	return c.JSON(ps)
@@ -562,7 +562,7 @@ func GetAllPoliklinik(c *fiber.Ctx) error {
 // @Accept json
 // @Produce json
 // @Success 200 {object} Dokter
-// @Router /dokter [get]
+// @Router /data_dokter [get]
 func GetAllDokter(c *fiber.Ctx) error {
 	ps := moduleantrian.GetAllDokter(config.Ulbimongoconn3, "data_dokter")
 	return c.JSON(ps)

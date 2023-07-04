@@ -24,29 +24,6 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/all-antrian": {
-            "get": {
-                "description": "Mengambil semua data antrian.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Antrian"
-                ],
-                "summary": "Get All Data Antrian.",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/controller.Antrian"
-                        }
-                    }
-                }
-            }
-        },
         "/antrian/{id}": {
             "get": {
                 "description": "Ambil per ID data antrian.",
@@ -88,6 +65,121 @@ const docTemplate = `{
                 }
             }
         },
+        "/data_antrian": {
+            "get": {
+                "description": "Mengambil semua data antrian.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Antrian"
+                ],
+                "summary": "Get All Data Antrian.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Antrian"
+                        }
+                    }
+                }
+            }
+        },
+        "/data_dokter": {
+            "get": {
+                "description": "Mengambil semua data dokter.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dokter"
+                ],
+                "summary": "Get All Data Dokter.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Dokter"
+                        }
+                    }
+                }
+            }
+        },
+        "/data_pasien": {
+            "get": {
+                "description": "Mengambil semua data pasien.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Pasien"
+                ],
+                "summary": "Get All Data Pasien.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Pasien"
+                        }
+                    }
+                }
+            }
+        },
+        "/data_poliklinik": {
+            "get": {
+                "description": "Mengambil semua data poliklinik.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Poliklinik"
+                ],
+                "summary": "Get All Data Poliklinik.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Poliklinik"
+                        }
+                    }
+                }
+            }
+        },
+        "/data_user": {
+            "get": {
+                "description": "Mengambil semua data user.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get All Data User.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.User"
+                        }
+                    }
+                }
+            }
+        },
         "/delete/{id}": {
             "delete": {
                 "description": "Hapus data presensi.",
@@ -119,29 +211,6 @@ const docTemplate = `{
                     },
                     "500": {
                         "description": "Internal Server Error"
-                    }
-                }
-            }
-        },
-        "/dokter": {
-            "get": {
-                "description": "Mengambil semua data dokter.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Dokter"
-                ],
-                "summary": "Get All Data Dokter.",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/controller.Dokter"
-                        }
                     }
                 }
             }
@@ -227,29 +296,6 @@ const docTemplate = `{
                 }
             }
         },
-        "/pasien": {
-            "get": {
-                "description": "Mengambil semua data pasien.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Pasien"
-                ],
-                "summary": "Get All Data Pasien.",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/controller.Pasien"
-                        }
-                    }
-                }
-            }
-        },
         "/pasien/{id}": {
             "get": {
                 "description": "Ambil per ID data pasien.",
@@ -287,29 +333,6 @@ const docTemplate = `{
                     },
                     "500": {
                         "description": "Internal Server Error"
-                    }
-                }
-            }
-        },
-        "/poliklinik": {
-            "get": {
-                "description": "Mengambil semua data poliklinik.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Poliklinik"
-                ],
-                "summary": "Get All Data Poliklinik.",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/controller.Poliklinik"
-                        }
                     }
                 }
             }
@@ -462,29 +485,6 @@ const docTemplate = `{
                     },
                     "500": {
                         "description": "Internal Server Error"
-                    }
-                }
-            }
-        },
-        "/user": {
-            "get": {
-                "description": "Mengambil semua data user.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "User"
-                ],
-                "summary": "Get All Data User.",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/controller.User"
-                        }
                     }
                 }
             }

@@ -166,21 +166,6 @@ info:
   title: Fiber Example API
   version: "1.0"
 paths:
-  /all-antrian:
-    get:
-      consumes:
-      - application/json
-      description: Mengambil semua data antrian.
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/controller.Antrian'
-      summary: Get All Data Antrian.
-      tags:
-      - Antrian
   /antrian/{id}:
     get:
       consumes:
@@ -208,6 +193,81 @@ paths:
       summary: Get By ID Data Antrian.
       tags:
       - Antrian
+  /data_antrian:
+    get:
+      consumes:
+      - application/json
+      description: Mengambil semua data antrian.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Antrian'
+      summary: Get All Data Antrian.
+      tags:
+      - Antrian
+  /data_dokter:
+    get:
+      consumes:
+      - application/json
+      description: Mengambil semua data dokter.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Dokter'
+      summary: Get All Data Dokter.
+      tags:
+      - Dokter
+  /data_pasien:
+    get:
+      consumes:
+      - application/json
+      description: Mengambil semua data pasien.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Pasien'
+      summary: Get All Data Pasien.
+      tags:
+      - Pasien
+  /data_poliklinik:
+    get:
+      consumes:
+      - application/json
+      description: Mengambil semua data poliklinik.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Poliklinik'
+      summary: Get All Data Poliklinik.
+      tags:
+      - Poliklinik
+  /data_user:
+    get:
+      consumes:
+      - application/json
+      description: Mengambil semua data user.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.User'
+      summary: Get All Data User.
+      tags:
+      - User
   /delete/{id}:
     delete:
       consumes:
@@ -231,21 +291,6 @@ paths:
       summary: Delete data presensi.
       tags:
       - Presensi
-  /dokter:
-    get:
-      consumes:
-      - application/json
-      description: Mengambil semua data dokter.
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/controller.Dokter'
-      summary: Get All Data Dokter.
-      tags:
-      - Dokter
   /dokter/{id}:
     get:
       consumes:
@@ -299,21 +344,6 @@ paths:
       summary: Insert data presensi.
       tags:
       - Presensi
-  /pasien:
-    get:
-      consumes:
-      - application/json
-      description: Mengambil semua data pasien.
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/controller.Pasien'
-      summary: Get All Data Pasien.
-      tags:
-      - Pasien
   /pasien/{id}:
     get:
       consumes:
@@ -341,21 +371,6 @@ paths:
       summary: Get By ID Data Pasien.
       tags:
       - Pasien
-  /poliklinik:
-    get:
-      consumes:
-      - application/json
-      description: Mengambil semua data poliklinik.
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/controller.Poliklinik'
-      summary: Get All Data Poliklinik.
-      tags:
-      - Poliklinik
   /poliklinik/{id}:
     get:
       consumes:
@@ -456,21 +471,6 @@ paths:
       summary: Update data presensi.
       tags:
       - Presensi
-  /user:
-    get:
-      consumes:
-      - application/json
-      description: Mengambil semua data user.
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/controller.User'
-      summary: Get All Data User.
-      tags:
-      - User
   /user/{id}:
     get:
       consumes:
