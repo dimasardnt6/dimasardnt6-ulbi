@@ -17,6 +17,98 @@
     "host": "dimasardnt6-ulbi.herokuapp.com",
     "basePath": "/",
     "paths": {
+        "/all-antrian": {
+            "get": {
+                "description": "Mengambil semua data antrian.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Antrian"
+                ],
+                "summary": "Get All Data Antrian.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Antrian"
+                        }
+                    }
+                }
+            }
+        },
+        "/all-dokter": {
+            "get": {
+                "description": "Mengambil semua data dokter.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dokter"
+                ],
+                "summary": "Get All Data Dokter.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Dokter"
+                        }
+                    }
+                }
+            }
+        },
+        "/all-pasien": {
+            "get": {
+                "description": "Mengambil semua data pasien.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Pasien"
+                ],
+                "summary": "Get All Data Pasien.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Pasien"
+                        }
+                    }
+                }
+            }
+        },
+        "/all-poliklinik": {
+            "get": {
+                "description": "Mengambil semua data poliklinik.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Poliklinik"
+                ],
+                "summary": "Get All Data Poliklinik.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Poliklinik"
+                        }
+                    }
+                }
+            }
+        },
         "/all-user": {
             "get": {
                 "description": "Mengambil semua data user.",
@@ -77,98 +169,6 @@
                     },
                     "500": {
                         "description": "Internal Server Error"
-                    }
-                }
-            }
-        },
-        "/data_antrian": {
-            "get": {
-                "description": "Mengambil semua data antrian.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Antrian"
-                ],
-                "summary": "Get All Data Antrian.",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/controller.Antrian"
-                        }
-                    }
-                }
-            }
-        },
-        "/data_dokter": {
-            "get": {
-                "description": "Mengambil semua data dokter.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Dokter"
-                ],
-                "summary": "Get All Data Dokter.",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/controller.Dokter"
-                        }
-                    }
-                }
-            }
-        },
-        "/data_pasien": {
-            "get": {
-                "description": "Mengambil semua data pasien.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Pasien"
-                ],
-                "summary": "Get All Data Pasien.",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/controller.Pasien"
-                        }
-                    }
-                }
-            }
-        },
-        "/data_poliklinik": {
-            "get": {
-                "description": "Mengambil semua data poliklinik.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Poliklinik"
-                ],
-                "summary": "Get All Data Poliklinik.",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/controller.Poliklinik"
-                        }
                     }
                 }
             }
