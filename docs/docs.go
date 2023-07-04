@@ -180,6 +180,181 @@ const docTemplate = `{
                 }
             }
         },
+        "/delete-antrian/{id}": {
+            "delete": {
+                "description": "Hapus data antrian.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Antrian"
+                ],
+                "summary": "Delete data antrian.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/delete-dokter/{id}": {
+            "delete": {
+                "description": "Hapus data dokter.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dokter"
+                ],
+                "summary": "Delete data dokter.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/delete-pasien/{id}": {
+            "delete": {
+                "description": "Hapus data pasien.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Pasien"
+                ],
+                "summary": "Delete data pasien.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/delete-poliklinik/{id}": {
+            "delete": {
+                "description": "Hapus data poliklinik.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Poliklinik"
+                ],
+                "summary": "Delete data poliklinik.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/delete-user/{id}": {
+            "delete": {
+                "description": "Hapus data user.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete data user.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
         "/delete/{id}": {
             "delete": {
                 "description": "Hapus data presensi.",

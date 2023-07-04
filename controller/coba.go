@@ -1308,6 +1308,17 @@ func UpdateDokter(c *fiber.Ctx) error {
 
 // Delete Function
 
+// DeletePasienByID godoc
+// @Summary Delete data pasien.
+// @Description Hapus data pasien.
+// @Tags Pasien
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200
+// @Failure 400
+// @Failure 500
+// @Router /delete-pasien/{id} [delete]
 func DeletePasienByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -1339,6 +1350,17 @@ func DeletePasienByID(c *fiber.Ctx) error {
 	})
 }
 
+// DeleteAntrianByID godoc
+// @Summary Delete data antrian.
+// @Description Hapus data antrian.
+// @Tags Antrian
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200
+// @Failure 400
+// @Failure 500
+// @Router /delete-antrian/{id} [delete]
 func DeleteAntrianByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -1370,6 +1392,17 @@ func DeleteAntrianByID(c *fiber.Ctx) error {
 	})
 }
 
+// DeletePoliklinikByID godoc
+// @Summary Delete data poliklinik.
+// @Description Hapus data poliklinik.
+// @Tags Poliklinik
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200
+// @Failure 400
+// @Failure 500
+// @Router /delete-poliklinik/{id} [delete]
 func DeletePoliklinikByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -1401,6 +1434,17 @@ func DeletePoliklinikByID(c *fiber.Ctx) error {
 	})
 }
 
+// DeleteDokterByID godoc
+// @Summary Delete data dokter.
+// @Description Hapus data dokter.
+// @Tags Dokter
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200
+// @Failure 400
+// @Failure 500
+// @Router /delete-dokter/{id} [delete]
 func DeleteDokterByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -1432,6 +1476,17 @@ func DeleteDokterByID(c *fiber.Ctx) error {
 	})
 }
 
+// DeleteUserByID godoc
+// @Summary Delete data user.
+// @Description Hapus data user.
+// @Tags User
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200
+// @Failure 400
+// @Failure 500
+// @Router /delete-user/{id} [delete]
 func DeleteUserByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
