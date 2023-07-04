@@ -344,6 +344,110 @@ paths:
       summary: Insert data presensi.
       tags:
       - Presensi
+  /ins-antrian:
+    post:
+      consumes:
+      - application/json
+      description: Input data antrian.
+      parameters:
+      - description: Payload Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controller.Antrian'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Antrian'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Insert data antrian.
+      tags:
+      - Antrian
+  /ins-dokter:
+    post:
+      consumes:
+      - application/json
+      description: Input data dokter.
+      parameters:
+      - description: Payload Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controller.Dokter'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Dokter'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Insert data dokter.
+      tags:
+      - Dokter
+  /ins-pasien:
+    post:
+      consumes:
+      - application/json
+      description: Input data pasien.
+      parameters:
+      - description: Payload Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controller.Pasien'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Pasien'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Insert data pasien.
+      tags:
+      - Pasien
+  /ins-poliklinik:
+    post:
+      consumes:
+      - application/json
+      description: Input data poliklinik.
+      parameters:
+      - description: Payload Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controller.Poliklinik'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Poliklinik'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Insert data poliklinik.
+      tags:
+      - Poliklinik
   /pasien/{id}:
     get:
       consumes:

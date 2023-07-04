@@ -929,6 +929,17 @@ func InsertUser(c *fiber.Ctx) error {
 	})
 }
 
+// InsertPasien godoc
+// @Summary Insert data pasien.
+// @Description Input data pasien.
+// @Tags Pasien
+// @Accept json
+// @Produce json
+// @Param request body Pasien true "Payload Body [RAW]"
+// @Success 200 {object} Pasien
+// @Failure 400
+// @Failure 500
+// @Router /ins-pasien [post]
 func InsertPasien(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 	var pasien modelantrian.Pasien
@@ -958,6 +969,17 @@ func InsertPasien(c *fiber.Ctx) error {
 	})
 }
 
+// InsertAntrian godoc
+// @Summary Insert data antrian.
+// @Description Input data antrian.
+// @Tags Antrian
+// @Accept json
+// @Produce json
+// @Param request body Antrian true "Payload Body [RAW]"
+// @Success 200 {object} Antrian
+// @Failure 400
+// @Failure 500
+// @Router /ins-antrian [post]
 func InsertAntrian(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 	var antrian modelantrian.Antrian
@@ -984,6 +1006,17 @@ func InsertAntrian(c *fiber.Ctx) error {
 	})
 }
 
+// InsertPoliklinik godoc
+// @Summary Insert data poliklinik.
+// @Description Input data poliklinik.
+// @Tags Poliklinik
+// @Accept json
+// @Produce json
+// @Param request body Poliklinik true "Payload Body [RAW]"
+// @Success 200 {object} Poliklinik
+// @Failure 400
+// @Failure 500
+// @Router /ins-poliklinik [post]
 func InsertPoliklinik(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 	var poliklinik modelantrian.Poliklinik
@@ -1011,6 +1044,17 @@ func InsertPoliklinik(c *fiber.Ctx) error {
 	})
 }
 
+// InsertDokter godoc
+// @Summary Insert data dokter.
+// @Description Input data dokter.
+// @Tags Dokter
+// @Accept json
+// @Produce json
+// @Param request body Dokter true "Payload Body [RAW]"
+// @Success 200 {object} Dokter
+// @Failure 400
+// @Failure 500
+// @Router /ins-dokter [post]
 func InsertDokter(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 	var dokter modelantrian.Dokter
