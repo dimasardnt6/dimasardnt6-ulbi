@@ -512,7 +512,7 @@ func DeleteKemahasiswaanByID(c *fiber.Ctx) error {
 // @Success 200 {object} User
 // @Router /all-user [get]
 func GetAllUser(c *fiber.Ctx) error {
-	ps := moduleantrian.GetAllUser(config.Ulbimongoconn, "all-user")
+	ps := moduleantrian.GetAllUser(config.Ulbimongoconn, "data_user")
 	return c.JSON(ps)
 }
 
@@ -597,7 +597,7 @@ func GetUserFromID(c *fiber.Ctx) error {
 			"message": "Invalid id parameter",
 		})
 	}
-	ps, err := moduleantrian.GetUserFromID(objID, config.Ulbimongoconn3, "all-user")
+	ps, err := moduleantrian.GetUserFromID(objID, config.Ulbimongoconn3, "data_user")
 	if err != nil {
 		if errors.Is(err, mongo.ErrNoDocuments) {
 			return c.Status(http.StatusNotFound).JSON(fiber.Map{
