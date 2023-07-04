@@ -510,9 +510,9 @@ func DeleteKemahasiswaanByID(c *fiber.Ctx) error {
 // @Accept json
 // @Produce json
 // @Success 200 {object} User
-// @Router /data_user [get]
+// @Router /all-user [get]
 func GetAllUser(c *fiber.Ctx) error {
-	ps := moduleantrian.GetAllUser(config.Ulbimongoconn, "data_user")
+	ps := moduleantrian.GetAllUser(config.Ulbimongoconn, "all-user")
 	return c.JSON(ps)
 }
 
@@ -581,7 +581,7 @@ func GetAllDokter(c *fiber.Ctx) error {
 // @Failure 400
 // @Failure 404
 // @Failure 500
-// @Router /all-user/{id} [get]
+// @Router /user/{id} [get]
 func GetUserFromID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {

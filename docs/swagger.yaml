@@ -166,17 +166,11 @@ info:
   title: Fiber Example API
   version: "1.0"
 paths:
-  /all-user/{id}:
+  /all-user:
     get:
       consumes:
       - application/json
-      description: Ambil per ID data user.
-      parameters:
-      - description: Masukan ID
-        in: path
-        name: id
-        required: true
-        type: string
+      description: Mengambil semua data user.
       produces:
       - application/json
       responses:
@@ -184,13 +178,7 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/controller.User'
-        "400":
-          description: Bad Request
-        "404":
-          description: Not Found
-        "500":
-          description: Internal Server Error
-      summary: Get By ID Data User.
+      summary: Get All Data User.
       tags:
       - User
   /antrian/{id}:
@@ -280,21 +268,6 @@ paths:
       summary: Get All Data Poliklinik.
       tags:
       - Poliklinik
-  /data_user:
-    get:
-      consumes:
-      - application/json
-      description: Mengambil semua data user.
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/controller.User'
-      summary: Get All Data User.
-      tags:
-      - User
   /delete/{id}:
     delete:
       consumes:
@@ -498,4 +471,31 @@ paths:
       summary: Update data presensi.
       tags:
       - Presensi
+  /user/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Ambil per ID data user.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.User'
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get By ID Data User.
+      tags:
+      - User
 swagger: "2.0"
