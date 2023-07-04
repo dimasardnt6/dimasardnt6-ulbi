@@ -41,7 +41,7 @@ func Web(page *fiber.App) {
 	page.Put("/upd/:id", controller.UpdateData)
 	page.Delete("/delete/:id", controller.DeletePresensiByID)
 
-	page.Get("/docs/*", swagger.HandlerDefault)
+	page.Get("/docspuskesmas/*", swagger.HandlerDefault)
 
 	// Endpoint Antrian Puskesmas
 	// Get Endpoint
@@ -80,5 +80,4 @@ func Web(page *fiber.App) {
 	page.Post("/sign-in", controller.SignIn)
 	page.Post("/autentikasi", controller.AuthenticateMiddleware)
 
-	page.Get("/docs/*", swagger.HandlerDefault)
 }

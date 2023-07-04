@@ -166,7 +166,7 @@ info:
   title: Fiber Example API
   version: "1.0"
 paths:
-  /antrian:
+  /all-antrian:
     get:
       consumes:
       - application/json

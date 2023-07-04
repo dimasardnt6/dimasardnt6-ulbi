@@ -17,7 +17,7 @@
     "host": "dimasardnt6-ulbi.herokuapp.com",
     "basePath": "/",
     "paths": {
-        "/antrian": {
+        "/all-antrian": {
             "get": {
                 "description": "Mengambil semua data antrian.",
                 "consumes": [

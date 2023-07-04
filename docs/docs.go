@@ -24,7 +24,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/antrian": {
+        "/all-antrian": {
             "get": {
                 "description": "Mengambil semua data antrian.",
                 "consumes": [
