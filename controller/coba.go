@@ -787,17 +787,6 @@ func GetDokterFromID(c *fiber.Ctx) error {
 
 // Login Signup
 
-// SignUp godoc
-// @Summary data SignUp User.
-// @Description data SignUp User.
-// @Tags SignUp
-// @Accept json
-// @Produce json
-// @Param request body SignUp true "Payload Body [RAW]"
-// @Success 200 {object} SignUp
-// @Failure 400
-// @Failure 500
-// @Router /sign-up [post]
 func SignUp(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 	var data modelantrian.User
@@ -823,17 +812,6 @@ func SignUp(c *fiber.Ctx) error {
 // Define a secret key for signing the JWT token
 var jwtSecret = []byte("secret-key")
 
-// SignIn godoc
-// @Summary data SignIn User.
-// @Description data SignIn User.
-// @Tags SignIn
-// @Accept json
-// @Produce json
-// @Param request body SignIn true "Payload Body [RAW]"
-// @Success 200 {object} SignIn
-// @Failure 400
-// @Failure 500
-// @Router /sign-in [post]
 func SignIn(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 	var data modelantrian.User
@@ -875,17 +853,7 @@ func SignIn(c *fiber.Ctx) error {
 	})
 }
 
-// AuthenticateMiddleware godoc
-// @Summary data AuthenticateMiddleware User.
-// @Description data AuthenticateMiddleware User.
-// @Tags AuthenticateMiddleware
-// @Accept json
-// @Produce json
-// @Param request body AuthenticateMiddleware true "Payload Body [RAW]"
-// @Success 200 {object} AuthenticateMiddleware
-// @Failure 400
-// @Failure 500
-// @Router /autentikasi [post]
+
 func AuthenticateMiddleware(c *fiber.Ctx) error {
 	tokenString := c.Get("Authorization") // Assuming the token is sent in the Authorization header
 
