@@ -512,7 +512,7 @@ func DeleteKemahasiswaanByID(c *fiber.Ctx) error {
 // @Success 200 {object} User
 // @Router /all-user [get]
 func GetAllUser(c *fiber.Ctx) error {
-	ps := moduleantrian.GetAllUser(config.Ulbimongoconn, "data_user")
+	ps := moduleantrian.GetAllUser(config.Ulbimongoconn3, "data_user")
 	return c.JSON(ps)
 }
 
@@ -1011,7 +1011,6 @@ func InsertPoliklinik(c *fiber.Ctx) error {
 	})
 }
 
-
 func InsertDokter(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
 	var dokter modelantrian.Dokter
@@ -1084,7 +1083,6 @@ func UpdatePasien(c *fiber.Ctx) error {
 		"message": "Data successfully updated",
 	})
 }
-
 
 func UpdateAntrian(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
@@ -1173,7 +1171,6 @@ func UpdatePoliklinik(c *fiber.Ctx) error {
 		"message": "Data successfully updated",
 	})
 }
-
 
 func UpdateDokter(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn3
