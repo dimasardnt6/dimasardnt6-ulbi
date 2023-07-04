@@ -884,7 +884,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "_id": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "123456789"
                 },
                 "identitas_pasien": {
                     "$ref": "#/definitions/controller.Pasien"
@@ -897,7 +898,8 @@ const docTemplate = `{
                 },
                 "status_antrian": {
                     "description": "Tanggal_Pendaftaran primitive.DateTime ` + "`" + `bson:\"tanggal_pendaftaran,omitempty\" json:\"tanggal_pendaftaran,omitempty\"` + "`" + `",
-                    "type": "string"
+                    "type": "string",
+                    "example": "Menunggu"
                 }
             }
         },
@@ -905,13 +907,16 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "_id": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "123456789"
                 },
                 "nama_dokter": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Dr.William"
                 },
                 "spesialisasi": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Dokter Umum"
                 }
             }
         },
@@ -1001,43 +1006,56 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "_id": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "123456789"
                 },
                 "alamat": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Cimahi"
                 },
                 "jenis_kelamin": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Laki-Laki"
                 },
                 "nama_pasien": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Budiono"
                 },
                 "nomor_ktp": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "3217060601020998"
                 },
                 "nomor_telepon": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "089647129899"
                 },
                 "tanggal_lahir": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "18 Januari 2002"
                 }
             }
         },
         "controller.Poliklinik": {
             "type": "object",
             "properties": {
+                "_id": {
+                    "type": "string",
+                    "example": "123456789"
+                },
                 "deskripsi": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Menyediakan Layanan KesehatanUmum"
                 },
                 "dokter": {
                     "$ref": "#/definitions/controller.Dokter"
                 },
                 "kode_poliklinik": {
-                    "description": "ID               primitive.ObjectID ` + "`" + `bson:\"_id,omitempty\" json:\"_id,omitempty\"` + "`" + `",
-                    "type": "string"
+                    "type": "string",
+                    "example": "PLUM"
                 },
                 "nama_poliklinik": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "PoliklinikUmum"
                 }
             }
         },
@@ -1074,7 +1092,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "_id": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "123456789"
                 },
                 "confirmpass": {
                     "type": "string"

@@ -3,6 +3,7 @@ definitions:
   controller.Antrian:
     properties:
       _id:
+        example: "123456789"
         type: string
       identitas_pasien:
         $ref: '#/definitions/controller.Pasien'
@@ -13,15 +14,19 @@ definitions:
       status_antrian:
         description: Tanggal_Pendaftaran primitive.DateTime `bson:"tanggal_pendaftaran,omitempty"
           json:"tanggal_pendaftaran,omitempty"`
+        example: Menunggu
         type: string
     type: object
   controller.Dokter:
     properties:
       _id:
+        example: "123456789"
         type: string
       nama_dokter:
+        example: Dr.William
         type: string
       spesialisasi:
+        example: Dokter Umum
         type: string
     type: object
   controller.JamKerja:
@@ -88,30 +93,42 @@ definitions:
   controller.Pasien:
     properties:
       _id:
+        example: "123456789"
         type: string
       alamat:
+        example: Cimahi
         type: string
       jenis_kelamin:
+        example: Laki-Laki
         type: string
       nama_pasien:
+        example: Budiono
         type: string
       nomor_ktp:
+        example: "3217060601020998"
         type: string
       nomor_telepon:
+        example: "089647129899"
         type: string
       tanggal_lahir:
+        example: 18 Januari 2002
         type: string
     type: object
   controller.Poliklinik:
     properties:
+      _id:
+        example: "123456789"
+        type: string
       deskripsi:
+        example: Menyediakan Layanan KesehatanUmum
         type: string
       dokter:
         $ref: '#/definitions/controller.Dokter'
       kode_poliklinik:
-        description: ID               primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
+        example: PLUM
         type: string
       nama_poliklinik:
+        example: PoliklinikUmum
         type: string
     type: object
   controller.Presensi:
@@ -138,6 +155,7 @@ definitions:
   controller.User:
     properties:
       _id:
+        example: "123456789"
         type: string
       confirmpass:
         type: string
