@@ -536,7 +536,7 @@ func GetAllPasien(c *fiber.Ctx) error {
 // @Accept json
 // @Produce json
 // @Success 200 {object} Antrian
-// @Router /antrian [get]
+// @Router /all-antrian [get]
 func GetAllAntrian(c *fiber.Ctx) error {
 	ps := moduleantrian.GetAllAntrian(config.Ulbimongoconn3, "data_antrian")
 	return c.JSON(ps)
