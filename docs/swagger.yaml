@@ -2,15 +2,15 @@ basePath: /
 definitions:
   controller.Antrian:
     properties:
-      _id:
-        example: "123456789"
-        type: string
       identitas_pasien:
         $ref: '#/definitions/controller.Pasien'
       nomor_antrian:
         type: integer
       poli:
-        $ref: '#/definitions/controller.Poliklinik'
+        allOf:
+        - $ref: '#/definitions/controller.Poliklinik'
+        description: ID                  primitive.ObjectID `bson:"_id,omitempty"
+          json:"_id,omitempty" example:"123456789"`
       status_antrian:
         description: Tanggal_Pendaftaran primitive.DateTime `bson:"tanggal_pendaftaran,omitempty"
           json:"tanggal_pendaftaran,omitempty"`
@@ -19,10 +19,9 @@ definitions:
     type: object
   controller.Dokter:
     properties:
-      _id:
-        example: "123456789"
-        type: string
       nama_dokter:
+        description: ID           primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"
+          example:"123456789"`
         example: Dr.William
         type: string
       spesialisasi:
@@ -92,9 +91,6 @@ definitions:
     type: object
   controller.Pasien:
     properties:
-      _id:
-        example: "123456789"
-        type: string
       alamat:
         example: Cimahi
         type: string
@@ -102,6 +98,8 @@ definitions:
         example: Laki-Laki
         type: string
       nama_pasien:
+        description: ID            primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"
+          example:"123456789"`
         example: Budiono
         type: string
       nomor_ktp:
@@ -116,15 +114,14 @@ definitions:
     type: object
   controller.Poliklinik:
     properties:
-      _id:
-        example: "123456789"
-        type: string
       deskripsi:
-        example: Menyediakan Layanan KesehatanUmum
+        example: Menyediakan Layanan Kesehatan Umum
         type: string
       dokter:
         $ref: '#/definitions/controller.Dokter'
       kode_poliklinik:
+        description: ID               primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"
+          example:"123456789"`
         example: PLUM
         type: string
       nama_poliklinik:
@@ -154,14 +151,13 @@ definitions:
     type: object
   controller.User:
     properties:
-      _id:
-        example: "123456789"
-        type: string
       confirmpass:
         type: string
       email:
         type: string
       firstname:
+        description: ID              primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"
+          example:"123456789"`
         type: string
       lastname:
         type: string

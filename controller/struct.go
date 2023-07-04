@@ -78,7 +78,7 @@ type Presensi struct {
 
 //struct antrian puskesmas 
 type User struct {
-	ID              primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" example:"123456789"`
+	// ID              primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" example:"123456789"`
 	FirstName       string             `bson:"firstname,omitempty" json:"firstname,omitempty"`
 	LastName        string             `bson:"lastname,omitempty" json:"lastname,omitempty"`
 	Email           string             `bson:"email,omitempty" json:"email,omitempty"`
@@ -88,7 +88,7 @@ type User struct {
 }
 
 type Pasien struct {
-	ID            primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" example:"123456789"`
+	// ID            primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" example:"123456789"`
 	Nama_Pasien   string             `bson:"nama_pasien,omitempty" json:"nama_pasien,omitempty" example:"Budiono"`
 	Nomor_Ktp     string             `bson:"nomor_ktp,omitempty" json:"nomor_ktp,omitempty" example:"3217060601020998"`
 	Alamat        string             `bson:"alamat,omitempty" json:"alamat,omitempty" example:"Cimahi"`
@@ -98,7 +98,7 @@ type Pasien struct {
 }
 
 type Antrian struct {
-	ID                  primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" example:"123456789"`
+	// ID                  primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" example:"123456789"`
 	Poli                Poliklinik         `bson:"poli,omitempty" json:"poli,omitempty"`
 	Identitas_Pasien    Pasien             `bson:"identitas_pasien,omitempty" json:"identitas_pasien,omitempty"`
 	Nomor_Antrian       int                `bson:"nomor_antrian,omitempty" json:"nomor_antrian,omitempty"`
@@ -107,15 +107,15 @@ type Antrian struct {
 }
 
 type Poliklinik struct {
-	ID               primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" example:"123456789"`
+	// ID               primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" example:"123456789"`
 	Kode_Poliklinik  string             `bson:"kode_poliklinik,omitempty" json:"kode_poliklinik,omitempty" example:"PLUM"`
 	Nama_Poliklinik  string             `bson:"nama_poliklinik,omitempty" json:"nama_poliklinik,omitempty" example:"PoliklinikUmum"`
-	Deskripsi        string             `bson:"deskripsi,omitempty" json:"deskripsi,omitempty" example:"Menyediakan Layanan KesehatanUmum"`
+	Deskripsi        string             `bson:"deskripsi,omitempty" json:"deskripsi,omitempty" example:"Menyediakan Layanan Kesehatan Umum"`
 	Identitas_Dokter Dokter             `bson:"dokter,omitempty" json:"dokter,omitempty"`
 }
 
 type Dokter struct {
-	ID           primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" example:"123456789"`
+	// ID           primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" example:"123456789"`
 	Nama_Dokter  string             `bson:"nama_dokter,omitempty" json:"nama_dokter,omitempty" example:"Dr.William"`
 	Spesialisasi string             `bson:"spesialisasi,omitempty" json:"spesialisasi,omitempty" example:"Dokter Umum"`
 }

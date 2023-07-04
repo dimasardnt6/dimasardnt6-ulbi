@@ -883,10 +883,6 @@ const docTemplate = `{
         "controller.Antrian": {
             "type": "object",
             "properties": {
-                "_id": {
-                    "type": "string",
-                    "example": "123456789"
-                },
                 "identitas_pasien": {
                     "$ref": "#/definitions/controller.Pasien"
                 },
@@ -894,7 +890,12 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "poli": {
-                    "$ref": "#/definitions/controller.Poliklinik"
+                    "description": "ID                  primitive.ObjectID ` + "`" + `bson:\"_id,omitempty\" json:\"_id,omitempty\" example:\"123456789\"` + "`" + `",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/controller.Poliklinik"
+                        }
+                    ]
                 },
                 "status_antrian": {
                     "description": "Tanggal_Pendaftaran primitive.DateTime ` + "`" + `bson:\"tanggal_pendaftaran,omitempty\" json:\"tanggal_pendaftaran,omitempty\"` + "`" + `",
@@ -906,11 +907,8 @@ const docTemplate = `{
         "controller.Dokter": {
             "type": "object",
             "properties": {
-                "_id": {
-                    "type": "string",
-                    "example": "123456789"
-                },
                 "nama_dokter": {
+                    "description": "ID           primitive.ObjectID ` + "`" + `bson:\"_id,omitempty\" json:\"_id,omitempty\" example:\"123456789\"` + "`" + `",
                     "type": "string",
                     "example": "Dr.William"
                 },
@@ -1005,10 +1003,6 @@ const docTemplate = `{
         "controller.Pasien": {
             "type": "object",
             "properties": {
-                "_id": {
-                    "type": "string",
-                    "example": "123456789"
-                },
                 "alamat": {
                     "type": "string",
                     "example": "Cimahi"
@@ -1018,6 +1012,7 @@ const docTemplate = `{
                     "example": "Laki-Laki"
                 },
                 "nama_pasien": {
+                    "description": "ID            primitive.ObjectID ` + "`" + `bson:\"_id,omitempty\" json:\"_id,omitempty\" example:\"123456789\"` + "`" + `",
                     "type": "string",
                     "example": "Budiono"
                 },
@@ -1038,18 +1033,15 @@ const docTemplate = `{
         "controller.Poliklinik": {
             "type": "object",
             "properties": {
-                "_id": {
-                    "type": "string",
-                    "example": "123456789"
-                },
                 "deskripsi": {
                     "type": "string",
-                    "example": "Menyediakan Layanan KesehatanUmum"
+                    "example": "Menyediakan Layanan Kesehatan Umum"
                 },
                 "dokter": {
                     "$ref": "#/definitions/controller.Dokter"
                 },
                 "kode_poliklinik": {
+                    "description": "ID               primitive.ObjectID ` + "`" + `bson:\"_id,omitempty\" json:\"_id,omitempty\" example:\"123456789\"` + "`" + `",
                     "type": "string",
                     "example": "PLUM"
                 },
@@ -1091,10 +1083,6 @@ const docTemplate = `{
         "controller.User": {
             "type": "object",
             "properties": {
-                "_id": {
-                    "type": "string",
-                    "example": "123456789"
-                },
                 "confirmpass": {
                     "type": "string"
                 },
@@ -1102,6 +1090,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "firstname": {
+                    "description": "ID              primitive.ObjectID ` + "`" + `bson:\"_id,omitempty\" json:\"_id,omitempty\" example:\"123456789\"` + "`" + `",
                     "type": "string"
                 },
                 "lastname": {
