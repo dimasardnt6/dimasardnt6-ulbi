@@ -581,7 +581,7 @@ func GetAllDokter(c *fiber.Ctx) error {
 // @Failure 400
 // @Failure 404
 // @Failure 500
-// @Router /user/{id} [get]
+// @Router /all-user/{id} [get]
 func GetUserFromID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -597,7 +597,7 @@ func GetUserFromID(c *fiber.Ctx) error {
 			"message": "Invalid id parameter",
 		})
 	}
-	ps, err := moduleantrian.GetUserFromID(objID, config.Ulbimongoconn3, "data_user")
+	ps, err := moduleantrian.GetUserFromID(objID, config.Ulbimongoconn3, "all-user")
 	if err != nil {
 		if errors.Is(err, mongo.ErrNoDocuments) {
 			return c.Status(http.StatusNotFound).JSON(fiber.Map{
